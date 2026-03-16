@@ -15,9 +15,6 @@ import Header from "~/components/header";
 import "./app.scss";
 
 export const links: Route.LinksFunction = () => [
-  { rel: "stylesheet", href: "/vendor/rescui-font-jb-sans-auto.css" },
-  { rel: "stylesheet", href: "/vendor/jetbrains-header.css" },
-  { rel: "stylesheet", href: "/vendor/jetbrains-footer.css" },
   { rel: "icon", type: "image/svg+xml", href: "/assets/images/favicon.svg" },
   { rel: "alternate icon", href: "/assets/images/favicon.ico" },
   { rel: "apple-touch-icon", href: "/assets/images/apple-touch-icon.png" },

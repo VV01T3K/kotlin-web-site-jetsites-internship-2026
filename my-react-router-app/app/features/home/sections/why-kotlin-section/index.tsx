@@ -7,6 +7,7 @@ import { Container, Section } from "~/components/layout/layout";
 import { multiplatformImage, whyKotlinFeatures } from "~/features/home/content";
 
 import { ProgrammingLanguage } from "./programming-language";
+
 import "./index.scss";
 
 function YouTubeEmbed({ id, title }: { id: string; title: string }) {
