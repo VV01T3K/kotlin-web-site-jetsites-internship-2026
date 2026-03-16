@@ -1,4 +1,9 @@
 FROM mcr.microsoft.com/devcontainers/typescript-node:4-24-trixie
 
-# RUN curl -fsSL https://vite.plus | bash
-# ENV PATH="/home/vscode/.local/bin:${PATH}"
+USER node
+
+RUN curl https://mise.run/zsh | sh
+ENV PATH="/home/node/.local/bin:${PATH}"
+RUN mise use -g claude@latest codex@latest opencode@latest
+COPY mise.toml /tmp/mise.toml
+RUN cd /tmp && mise trust && mise install -y
