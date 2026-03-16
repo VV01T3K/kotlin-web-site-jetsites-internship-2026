@@ -2,7 +2,7 @@ import Button from "@rescui/button";
 import { useTextStyles } from "@rescui/typography";
 import cn from "classnames";
 
-import { Container, Section } from "~/components/layout";
+import { Container, Section } from "~/components/layout/layout";
 import { latestBanner, latestNewsItems } from "~/features/home/content";
 
 import "./index.scss";

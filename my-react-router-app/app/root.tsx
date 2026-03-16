@@ -1,5 +1,3 @@
-import "./server-shims";
-
 import {
   isRouteErrorResponse,
   Links,
@@ -11,19 +9,10 @@ import {
 
 import type { Route } from "./+types/root";
 import type { ReactNode } from "react";
-import { Header } from "@jetbrains/kotlin-web-site-ui/out/components/header/header.js";
-import { Footer } from "@jetbrains/kotlin-web-site-ui/out/components/footer/footer.js";
-import { ThemeProvider } from "@rescui/ui-contexts";
+import Footer from "~/components/footer";
+import Header from "~/components/header";
 
 import "./app.scss";
-
-const PRODUCT_WEB_URL =
-  "https://github.com/JetBrains/kotlin/releases/tag/v1.6.20";
-const SEARCH_CONFIG = {
-  searchAlgoliaId: "",
-  searchAlgoliaApiKey: "",
-  searchAlgoliaIndexName: "",
-};
 
 export const links: Route.LinksFunction = () => [
   { rel: "stylesheet", href: "/vendor/rescui-font-jb-sans-auto.css" },
@@ -52,18 +41,9 @@ export const links: Route.LinksFunction = () => [
 function SiteChrome({ children }: { children: ReactNode }) {
   return (
     <div className="site-shell">
-      <Header
-        productWebUrl={PRODUCT_WEB_URL}
-        hasSearch={false}
-        dropdownTheme="dark"
-        currentUrl="/"
-        onSearchClick={() => {}}
-        searchConfig={SEARCH_CONFIG}
-      />
+      <Header />
       <main className="site-shell__content">{children}</main>
-      <ThemeProvider theme="dark">
-        <Footer />
-      </ThemeProvider>
+      <Footer />
     </div>
   );
 }

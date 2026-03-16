@@ -3,7 +3,7 @@ import { useTextStyles } from "@rescui/typography";
 import { ThemeProvider } from "@rescui/ui-contexts";
 import cn from "classnames";
 
-import { Container, Section } from "~/components/layout";
+import { Container, Section } from "~/components/layout/layout";
 import { multiplatformImage, whyKotlinFeatures } from "~/features/home/content";
 
 import { ProgrammingLanguage } from "./programming-language";

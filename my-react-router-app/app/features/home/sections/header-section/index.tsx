@@ -3,7 +3,7 @@ import { cardCn } from "@rescui/card";
 import { useTextStyles } from "@rescui/typography";
 import cn from "classnames";
 
-import { Container, Section } from "~/components/layout";
+import { Container, Section } from "~/components/layout/layout";
 import { heroCards } from "~/features/home/content";
 
 import "./index.scss";
