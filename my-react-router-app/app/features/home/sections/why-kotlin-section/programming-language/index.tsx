@@ -7,14 +7,14 @@ import cn from "classnames";
 import hljs from "highlight.js/lib/core";
 import kotlin from "highlight.js/lib/languages/kotlin";
 
-import { codeTabs } from "~/features/home/content";
+import { tabs } from "./data";
 
 import "highlight.js/styles/github.css";
 import "./index.scss";
 
 hljs.registerLanguage("kotlin", kotlin);
 
-const highlightedCodeTabs = codeTabs.map((tab) => ({
+const highlightedCodeTabs = tabs.map((tab) => ({
   ...tab,
   highlightedCode: hljs.highlight(tab.code, {
     language: "kotlin",

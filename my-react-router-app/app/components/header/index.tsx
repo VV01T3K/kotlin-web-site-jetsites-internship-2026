@@ -1,24 +1,22 @@
 import KotlinHeader, {
+  type KotlinHeaderProps,
   type KotlinHeaderSearchConfig,
 } from "@jetbrains/kotlin-web-site-ui/out/components/header/index.js";
 
-const PRODUCT_WEB_URL =
-  "https://github.com/JetBrains/kotlin/releases/tag/v1.6.20";
-
-const SEARCH_CONFIG: KotlinHeaderSearchConfig = {
+const EMPTY_SEARCH_CONFIG: KotlinHeaderSearchConfig = {
   searchAlgoliaId: "",
   searchAlgoliaApiKey: "",
   searchAlgoliaIndexName: "",
 };
 
-export default function Header() {
+export default function Header(props: KotlinHeaderProps) {
   return (
     <KotlinHeader
-      productWebUrl={PRODUCT_WEB_URL}
       hasSearch={false}
       dropdownTheme="dark"
       currentUrl="/"
-      searchConfig={SEARCH_CONFIG}
+      searchConfig={EMPTY_SEARCH_CONFIG}
+      {...props}
     />
   );
 }

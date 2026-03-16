@@ -4,7 +4,8 @@ import { useTextStyles } from "@rescui/typography";
 import cn from "classnames";
 
 import { Container, Section } from "~/components/layout/layout";
-import { heroCards } from "~/features/home/content";
+
+import { cardsData } from "./data";
 
 import "./index.scss";
 
@@ -47,7 +48,7 @@ export function HeaderSection() {
           </div>
 
           <div className="kto-grid kto-grid-gap-16 kto-offset-top-48">
-            {heroCards.map((card, index) => (
+            {cardsData.map((card, index) => (
               <a
                 key={card.id}
                 href={card.link}

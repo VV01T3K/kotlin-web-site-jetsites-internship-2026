@@ -11,6 +11,7 @@ import type { Route } from "./+types/root";
 import type { ReactNode } from "react";
 import Footer from "~/components/footer";
 import Header from "~/components/header";
+import { releases } from "~/data/site/releases";
 
 import "./app.scss";
 
@@ -38,7 +39,7 @@ export const links: Route.LinksFunction = () => [
 function SiteChrome({ children }: { children: ReactNode }) {
   return (
     <div className="site-shell">
-      <Header />
+      <Header productWebUrl={releases.latest.url} />
       <main className="site-shell__content">{children}</main>
       <Footer />
     </div>

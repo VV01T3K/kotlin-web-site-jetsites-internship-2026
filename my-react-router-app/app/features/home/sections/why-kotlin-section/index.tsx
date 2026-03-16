@@ -4,8 +4,9 @@ import { ThemeProvider } from "@rescui/ui-contexts";
 import cn from "classnames";
 
 import { Container, Section } from "~/components/layout/layout";
-import { multiplatformImage, whyKotlinFeatures } from "~/features/home/content";
+import multiplatformImg from "../../images/index/multiplatform.svg";
 
+import { sections } from "./sections-data";
 import { ProgrammingLanguage } from "./programming-language";
 
 import "./index.scss";
@@ -28,15 +29,6 @@ function YouTubeEmbed({ id, title }: { id: string; title: string }) {
   );
 }
 
-function renderTitle(lines: string[]) {
-  return lines.map((line, index) => (
-    <span key={line}>
-      {index > 0 ? <br /> : null}
-      {line}
-    </span>
-  ));
-}
-
 function WhyKotlinContent() {
   const textCn = useTextStyles();
 
@@ -47,39 +39,27 @@ function WhyKotlinContent() {
 
         <ProgrammingLanguage />
 
-        {whyKotlinFeatures.map((feature) => (
+        {sections.map((section, index) => (
           <div
-            key={feature.buttonText}
+            key={index}
             className="kto-grid kto-grid-gap-32 kto-offset-top-96 kto-offset-top-md-48"
           >
             <div className="kto-col-4 kto-col-md-12">
-              <h3 className={textCn("rs-h2")}>{renderTitle(feature.titleLines)}</h3>
-              <p className={cn(textCn("rs-text-2"), "kto-offset-top-32")}>
-                {feature.descriptionParagraphs.map((paragraph, index) => (
-                  <span key={paragraph}>
-                    {index > 0 ? (
-                      <>
-                        <br />
-                        <br />
-                      </>
-                    ) : null}
-                    {paragraph}
-                  </span>
-                ))}
-              </p>
+              <h3 className={textCn("rs-h2")}>{section.title}</h3>
+              <p className={cn(textCn("rs-text-2"), "kto-offset-top-32")}>{section.description}</p>
               <div className="kto-offset-top-32">
-                <Button mode="outline" size="l" href={feature.buttonLink}>
-                  {feature.buttonText}
+                <Button mode="outline" size="l" href={section.buttonLink}>
+                  {section.buttonText}
                 </Button>
               </div>
             </div>
 
             <div className="kto-col-8 kto-col-md-12">
-              {feature.media === "youtube" && feature.youtubeId ? (
-                <YouTubeEmbed id={feature.youtubeId} title={feature.titleLines.join(" ")} />
+              {section.media === "youtube" && section.youtubeId ? (
+                <YouTubeEmbed id={section.youtubeId} title={section.buttonText} />
               ) : (
                 <img
-                  src={multiplatformImage}
+                  src={multiplatformImg}
                   alt="Kotlin Multiplatform"
                   className="why-kotlin-section__image"
                 />

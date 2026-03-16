@@ -3,7 +3,11 @@ import { useTextStyles } from "@rescui/typography";
 import cn from "classnames";
 
 import { Container, Section } from "~/components/layout/layout";
-import { latestBanner, latestNewsItems } from "~/features/home/content";
+
+import bannerImg from "../../images/index/banners/kotlin-1.6.20.png";
+import bannerMobileImg from "../../images/index/banners/kotlin-1.6.20-mobile.png";
+
+import { newsData } from "./data";
 
 import "./index.scss";
 
@@ -18,20 +22,20 @@ export function LatestFromKotlinSection() {
 
           <div className="kto-offset-top-32">
             <a
-              href={latestBanner.href}
+              href="https://blog.jetbrains.com/kotlin/2022/04/kotlin-1-6-20-released/"
               target="_blank"
               rel="noopener noreferrer"
               className="latest-from-kotlin-section__banner-link"
             >
               <picture>
-                <source media="(max-width: 537px)" srcSet={latestBanner.mobileSrc} />
-                <img src={latestBanner.desktopSrc} alt={latestBanner.alt} width="100%" />
+                <source media="(max-width: 537px)" srcSet={bannerMobileImg} />
+                <img src={bannerImg} alt="Kotlin 1.6.20 released" width="100%" />
               </picture>
             </a>
           </div>
 
           <div className="kto-grid kto-grid-gap-32 kto-offset-top-32">
-            {latestNewsItems.map((news) => (
+            {newsData.map((news) => (
               <div key={news.link} className="kto-col-3 kto-col-md-6 kto-col-sm-12">
                 <p className={textCn("rs-text-3")}>{news.tag}</p>
                 <h3 className={cn(textCn("rs-text-2"), "kto-offset-top-8")}>

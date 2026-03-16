@@ -7,9 +7,12 @@ import { ThemeProvider } from "@rescui/ui-contexts";
 import cn from "classnames";
 
 import { Container, Section } from "~/components/layout/layout";
-import { testimonialStorageKey, testimonials } from "~/features/home/content";
+
+import { testimonials } from "./data";
 
 import "./index.scss";
+
+const testimonialStorageKey = "kotlin-testimonials-order";
 
 function UsageSectionContent() {
   const textCn = useTextStyles();
