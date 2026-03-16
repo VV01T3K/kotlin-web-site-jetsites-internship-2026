@@ -9,16 +9,19 @@ import { multiplatformImage, whyKotlinFeatures } from "~/features/home/content";
 import { ProgrammingLanguage } from "./programming-language";
 import "./index.scss";
 
-function YouTubeEmbed({ id }: { id: string }) {
+function YouTubeEmbed({ id, title }: { id: string; title: string }) {
   return (
     <div className="why-kotlin-section__youtube">
       <iframe
         width="560"
         height="315"
+        title={title}
+        loading="lazy"
         frameBorder="0"
         allowFullScreen
-        src={`https://www.youtube-nocookie.com/embed/${id}`}
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        referrerPolicy="strict-origin-when-cross-origin"
+        src={`https://www.youtube-nocookie.com/embed/${id}?rel=0`}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       />
     </div>
   );
@@ -72,7 +75,7 @@ function WhyKotlinContent() {
 
             <div className="kto-col-8 kto-col-md-12">
               {feature.media === "youtube" && feature.youtubeId ? (
-                <YouTubeEmbed id={feature.youtubeId} />
+                <YouTubeEmbed id={feature.youtubeId} title={feature.titleLines.join(" ")} />
               ) : (
                 <img
                   src={multiplatformImage}

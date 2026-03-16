@@ -14,12 +14,16 @@ import "./index.scss";
 
 hljs.registerLanguage("kotlin", kotlin);
 
+const highlightedCodeTabs = codeTabs.map((tab) => ({
+  ...tab,
+  highlightedCode: hljs.highlight(tab.code, {
+    language: "kotlin",
+  }).value,
+}));
+
 export function ProgrammingLanguage() {
   const textCn = useTextStyles();
   const [activeIndex, setActiveIndex] = useState(0);
-  const highlighted = hljs.highlight(codeTabs[activeIndex].code, {
-    language: "kotlin",
-  }).value;
 
   return (
     <div className="kto-grid kto-grid-gap-32 kto-offset-top-96 kto-offset-top-md-48">
@@ -37,13 +41,16 @@ export function ProgrammingLanguage() {
 
       <div className="kto-col-8 kto-col-md-12">
         <TabList value={activeIndex} onChange={(value) => setActiveIndex(Number(value))}>
-          {codeTabs.map((tab) => (
+          {highlightedCodeTabs.map((tab) => (
             <Tab key={tab.title}>{tab.title}</Tab>
           ))}
         </TabList>
         <TabSeparator />
         <pre className="programming-language__code kto-offset-top-16">
-          <code className="hljs" dangerouslySetInnerHTML={{ __html: highlighted }} />
+          <code
+            className="hljs"
+            dangerouslySetInnerHTML={{ __html: highlightedCodeTabs[activeIndex].highlightedCode }}
+          />
         </pre>
       </div>
     </div>
