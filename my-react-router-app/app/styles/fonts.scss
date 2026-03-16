@@ -1,22 +1,55 @@
 @use "./config/font";
 @use "./fonts/jetbrains-mono";
 
-// Sans Serif
-@import url('//fonts.googleapis.com/css?family=Open+Sans:300,300italic,400italic,700italic,400,700');
-
-// Mono
-@import url('//fonts.googleapis.com/css?family=Droid+Sans+Mono');
+@font-face {
+    font-family: 'Open Sans';
+    src: url('/assets/fonts/OpenSans-Light-webfont.woff') format('woff');
+    font-style: normal;
+    font-weight: 300;
+    font-display: optional;
+}
+@font-face {
+    font-family: 'Open Sans';
+    src: url('/assets/fonts/OpenSans-Regular-webfont.woff') format('woff');
+    font-style: normal;
+    font-weight: 400;
+    font-display: optional;
+}
+@font-face {
+    font-family: 'Open Sans';
+    src: url('/assets/fonts/OpenSans-Italic-webfont.woff') format('woff');
+    font-style: italic;
+    font-weight: 400;
+    font-display: optional;
+}
+@font-face {
+    font-family: 'Open Sans';
+    src: url('/assets/fonts/OpenSans-Bold-webfont.woff') format('woff');
+    font-style: normal;
+    font-weight: 700;
+    font-display: optional;
+}
+@font-face {
+    font-family: 'Open Sans';
+    src: url('/assets/fonts/OpenSans-BoldItalic-webfont.woff') format('woff');
+    font-style: italic;
+    font-weight: 700;
+    font-display: optional;
+}
 
 // Serif
 @font-face {
     font-family: 'GraublauSans Bold';
     src: url('/assets/fonts/GraublauSans-Bold-webfont.woff');
+    font-display: optional;
 }
 @font-face {
     font-family: 'GraublauSlab Regular';
     src: url('/assets/fonts/GraublauSlab-Regular-webfont.woff');
+    font-display: optional;
 }
 @font-face {
     font-family: 'GraublauSlab Semibold';
     src: url('/assets/fonts/GraublauSlab-Semibold.woff');
+    font-display: optional;
 }

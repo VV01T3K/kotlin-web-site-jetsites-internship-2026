@@ -30,7 +30,13 @@ export function HeaderSection() {
             </div>
 
             <div className="header-section__contributors">
-              <img src="/assets/jetbrains-logo.svg" alt="" />
+              <img
+                src="/assets/jetbrains-logo.svg"
+                alt=""
+                width="60"
+                height="60"
+                className="header-section__contributors-logo"
+              />
               <p className={textCn("rs-text-2")}>
                 Developed by{" "}
                 <a className={textCn("rs-link")} href="https://www.jetbrains.com/">

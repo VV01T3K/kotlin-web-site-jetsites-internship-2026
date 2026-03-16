@@ -27,9 +27,15 @@ export function LatestFromKotlinSection() {
               rel="noopener noreferrer"
               className="latest-from-kotlin-section__banner-link"
             >
-              <picture>
+              <picture className="latest-from-kotlin-section__banner-picture">
                 <source media="(max-width: 537px)" srcSet={bannerMobileImg} />
-                <img src={bannerImg} alt="Kotlin 1.6.20 released" width="100%" />
+                <img
+                  src={bannerImg}
+                  alt="Kotlin 1.6.20 released"
+                  width="2000"
+                  height="656"
+                  className="latest-from-kotlin-section__banner-image"
+                />
               </picture>
             </a>
           </div>
