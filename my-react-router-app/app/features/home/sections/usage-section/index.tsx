@@ -62,6 +62,8 @@ function UsageSectionContent() {
               <img
                 src={item.logo}
                 alt={item.company}
+                loading="lazy"
+                decoding="async"
                 className={cn("usage-section__logo", {
                   "usage-section__logo_spring": item.company === "Spring",
                 })}

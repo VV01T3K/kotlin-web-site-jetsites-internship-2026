@@ -61,6 +61,8 @@ function WhyKotlinContent() {
                 <img
                   src={multiplatformImg}
                   alt="Kotlin Multiplatform"
+                  loading="lazy"
+                  decoding="async"
                   className="why-kotlin-section__image"
                 />
               )}

@@ -34,6 +34,9 @@ export function LatestFromKotlinSection() {
                   alt="Kotlin 1.6.20 released"
                   width="2000"
                   height="656"
+                  loading="lazy"
+                  decoding="async"
+                  fetchPriority="low"
                   className="latest-from-kotlin-section__banner-image"
                 />
               </picture>
