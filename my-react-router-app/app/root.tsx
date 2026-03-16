@@ -1,3 +1,5 @@
+import "./server-shims";
+
 import {
   isRouteErrorResponse,
   Links,
@@ -8,31 +10,74 @@ import {
 } from "react-router";
 
 import type { Route } from "./+types/root";
-import "./app.css";
+import type { ReactNode } from "react";
+import { Header } from "@jetbrains/kotlin-web-site-ui/out/components/header/header.js";
+import { Footer } from "@jetbrains/kotlin-web-site-ui/out/components/footer/footer.js";
+import { ThemeProvider } from "@rescui/ui-contexts";
+
+import "./app.scss";
+
+const PRODUCT_WEB_URL =
+  "https://github.com/JetBrains/kotlin/releases/tag/v1.6.20";
+const SEARCH_CONFIG = {
+  searchAlgoliaId: "",
+  searchAlgoliaApiKey: "",
+  searchAlgoliaIndexName: "",
+};
 
 export const links: Route.LinksFunction = () => [
-  { rel: "preconnect", href: "https://fonts.googleapis.com" },
+  { rel: "stylesheet", href: "/vendor/rescui-font-jb-sans-auto.css" },
+  { rel: "stylesheet", href: "/vendor/jetbrains-header.css" },
+  { rel: "stylesheet", href: "/vendor/jetbrains-footer.css" },
+  { rel: "icon", type: "image/svg+xml", href: "/assets/images/favicon.svg" },
+  { rel: "alternate icon", href: "/assets/images/favicon.ico" },
+  { rel: "apple-touch-icon", href: "/assets/images/apple-touch-icon.png" },
   {
-    rel: "preconnect",
-    href: "https://fonts.gstatic.com",
-    crossOrigin: "anonymous",
+    rel: "apple-touch-icon",
+    sizes: "72x72",
+    href: "/assets/images/apple-touch-icon-72x72.png",
   },
   {
-    rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
+    rel: "apple-touch-icon",
+    sizes: "114x114",
+    href: "/assets/images/apple-touch-icon-114x114.png",
+  },
+  {
+    rel: "apple-touch-icon",
+    sizes: "144x144",
+    href: "/assets/images/apple-touch-icon-144x144.png",
   },
 ];
 
-export function Layout({ children }: { children: React.ReactNode }) {
+function SiteChrome({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <div className="site-shell">
+      <Header
+        productWebUrl={PRODUCT_WEB_URL}
+        hasSearch={false}
+        dropdownTheme="dark"
+        currentUrl="/"
+        onSearchClick={() => {}}
+        searchConfig={SEARCH_CONFIG}
+      />
+      <main className="site-shell__content">{children}</main>
+      <ThemeProvider theme="dark">
+        <Footer />
+      </ThemeProvider>
+    </div>
+  );
+}
+
+export function Layout({ children }: { children: ReactNode }) {
+  return (
+    <html lang="en" className="page__index-new page_restyled_v2">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="page_js_yes">
         {children}
         <ScrollRestoration />
         <Scripts />
@@ -42,7 +87,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <SiteChrome>
+      <Outlet />
+    </SiteChrome>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
@@ -56,20 +105,24 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
       error.status === 404
         ? "The requested page could not be found."
         : error.statusText || details;
-  } else if (import.meta.env.DEV && error && error instanceof Error) {
+  } else if (import.meta.env.DEV && error instanceof Error) {
     details = error.message;
     stack = error.stack;
   }
 
   return (
-    <main className="pt-16 p-4 container mx-auto">
-      <h1>{message}</h1>
-      <p>{details}</p>
-      {stack && (
-        <pre className="w-full p-4 overflow-x-auto">
-          <code>{stack}</code>
-        </pre>
-      )}
-    </main>
+    <SiteChrome>
+      <section className="route-error">
+        <div className="route-error__container">
+          <h1>{message}</h1>
+          <p>{details}</p>
+          {stack ? (
+            <pre className="route-error__stack">
+              <code>{stack}</code>
+            </pre>
+          ) : null}
+        </div>
+      </section>
+    </SiteChrome>
   );
 }
