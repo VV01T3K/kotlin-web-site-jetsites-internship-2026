@@ -13,6 +13,7 @@ import "./index.scss";
 
 const YouTubeEmbed = ({ id, title }: { id: string; title: string }) => (
   <div className="why-kotlin-section__youtube">
+    {/* oxlint-disable-next-line react/iframe-missing-sandbox -- YouTube embeds require allow-same-origin to function */}
     <iframe
       width="560"
       height="315"
@@ -23,7 +24,6 @@ const YouTubeEmbed = ({ id, title }: { id: string; title: string }) => (
       referrerPolicy="strict-origin-when-cross-origin"
       src={`https://www.youtube-nocookie.com/embed/${id}?rel=0`}
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      sandbox="allow-scripts allow-presentation allow-popups allow-popups-to-escape-sandbox"
     />
   </div>
 );
