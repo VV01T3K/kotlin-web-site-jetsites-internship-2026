@@ -1,10 +1,17 @@
 import type { Route } from "./+types/home";
 import { HomePage } from "~/features/home/home-page";
+import { testimonialOrderCookie } from "~/cookies.server";
 
 const title = "Kotlin Programming Language";
 const description =
   "A modern programming language that makes developers happier.";
 const image = "/assets/images/open-graph/general.png";
+
+export async function loader({ request }: Route.LoaderArgs) {
+  const cookie = await testimonialOrderCookie.parse(request.headers.get("Cookie"));
+  const initialSortByName = cookie === "name";
+  return { initialSortByName };
+}
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -22,6 +29,6 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-export default function Home() {
-  return <HomePage />;
+export default function Home({ loaderData }: Route.ComponentProps) {
+  return <HomePage initialSortByName={loaderData.initialSortByName} />;
 }

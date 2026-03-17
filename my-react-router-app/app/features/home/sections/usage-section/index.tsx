@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import Button from "@rescui/button";
 import { cardCn } from "@rescui/card";
@@ -12,16 +12,9 @@ import { testimonials } from "./data";
 
 import "./index.scss";
 
-const testimonialStorageKey = "kotlin-testimonials-order";
-
-function UsageSectionContent() {
+function UsageSectionContent({ initialSortByName }: { initialSortByName: boolean }) {
   const textCn = useTextStyles();
-  const [sortByName, setSortByName] = useState(false);
-
-  useEffect(() => {
-    const savedOrder = window.localStorage.getItem(testimonialStorageKey);
-    setSortByName(savedOrder === "name");
-  }, []);
+  const [sortByName, setSortByName] = useState(initialSortByName);
 
   const sortedTestimonials = sortByName
     ? [...testimonials].sort((a, b) => a.company.localeCompare(b.company))
@@ -39,7 +32,7 @@ function UsageSectionContent() {
             onClick={() => {
               const next = !sortByName;
               setSortByName(next);
-              window.localStorage.setItem(testimonialStorageKey, next ? "name" : "default");
+              document.cookie = `kotlin-testimonials-order=${JSON.stringify(next ? "name" : "default")}; path=/; max-age=31536000`;
             }}
           >
             Sort: {sortByName ? "A-Z" : "Default"}
@@ -77,10 +70,10 @@ function UsageSectionContent() {
   );
 }
 
-export function UsageSection() {
+export function UsageSection({ initialSortByName }: { initialSortByName: boolean }) {
   return (
     <ThemeProvider theme="light">
-      <UsageSectionContent />
+      <UsageSectionContent initialSortByName={initialSortByName} />
     </ThemeProvider>
   );
 }

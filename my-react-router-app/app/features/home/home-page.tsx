@@ -7,14 +7,18 @@ import { UsageSection } from "./sections/usage-section";
 import { StartSection } from "./sections/start-section";
 import "./home-page.scss";
 
-export function HomePage() {
+interface HomePageProps {
+  initialSortByName: boolean;
+}
+
+export function HomePage({ initialSortByName }: HomePageProps) {
   return (
     <ThemeProvider theme="dark">
       <div className="overview-page">
         <HeaderSection />
         <LatestFromKotlinSection />
         <WhyKotlinSection />
-        <UsageSection />
+        <UsageSection initialSortByName={initialSortByName} />
         <StartSection />
       </div>
     </ThemeProvider>
