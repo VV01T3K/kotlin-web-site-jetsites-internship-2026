@@ -51,5 +51,8 @@
     "babel-plugin-react-compiler": "^1.0.0",
     "sass": "^1.98.0",
     "vite": "^8.0.0"
+  },
+  "patchedDependencies": {
+    "@jetbrains/kotlin-web-site-ui@4.14.5": "patches/@jetbrains%2Fkotlin-web-site-ui@4.14.5.patch"
   }
 }
