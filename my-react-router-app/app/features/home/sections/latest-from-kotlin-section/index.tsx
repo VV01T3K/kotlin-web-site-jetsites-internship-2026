@@ -4,7 +4,9 @@ import cn from "classnames";
 
 import { Container, Section } from "~/components/layout/layout";
 
+import bannerAvifImg from "../../images/index/banners/kotlin-1.6.20.avif";
 import bannerImg from "../../images/index/banners/kotlin-1.6.20.png";
+import bannerMobileAvifImg from "../../images/index/banners/kotlin-1.6.20-mobile.avif";
 import bannerMobileImg from "../../images/index/banners/kotlin-1.6.20-mobile.png";
 
 import { newsData } from "./data";
@@ -28,14 +30,19 @@ export function LatestFromKotlinSection() {
               className="latest-from-kotlin-section__banner-link"
             >
               <picture className="latest-from-kotlin-section__banner-picture">
+                <source
+                  media="(max-width: 537px)"
+                  srcSet={bannerMobileAvifImg}
+                  type="image/avif"
+                />
                 <source media="(max-width: 537px)" srcSet={bannerMobileImg} />
+                <source srcSet={bannerAvifImg} type="image/avif" />
                 <img
                   src={bannerImg}
                   alt="Kotlin 1.6.20 released"
                   width="2000"
                   height="656"
                   loading="lazy"
-                  decoding="async"
                   fetchPriority="low"
                   className="latest-from-kotlin-section__banner-image"
                 />
