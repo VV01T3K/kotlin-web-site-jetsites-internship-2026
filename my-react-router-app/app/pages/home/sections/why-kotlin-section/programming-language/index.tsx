@@ -1,10 +1,10 @@
-import Button from "@rescui/button";
+import { Button } from "@rescui/button";
 import { Tab, TabList, TabSeparator } from "@rescui/tab-list";
 import { useTextStyles } from "@rescui/typography";
 import cn from "classnames";
 import hljs from "highlight.js/lib/core";
 import kotlin from "highlight.js/lib/languages/kotlin";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 import { tabs } from "./data";
 
@@ -20,9 +20,13 @@ const highlightedCodeTabs = tabs.map((tab) => ({
   }).value,
 }));
 
-export function ProgrammingLanguage() {
+export const ProgrammingLanguage = () => {
   const textCn = useTextStyles();
   const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleTabChange = useCallback((value: unknown) => {
+    setActiveIndex(Number(value));
+  }, []);
 
   return (
     <div className="kto-grid kto-grid-gap-32 kto-offset-top-96 kto-offset-top-md-48">
@@ -41,10 +45,7 @@ export function ProgrammingLanguage() {
       </div>
 
       <div className="kto-col-8 kto-col-md-12">
-        <TabList
-          value={activeIndex}
-          onChange={(value) => setActiveIndex(Number(value))}
-        >
+        <TabList value={activeIndex} onChange={handleTabChange}>
           {highlightedCodeTabs.map((tab) => (
             <Tab key={tab.title}>{tab.title}</Tab>
           ))}
@@ -53,6 +54,7 @@ export function ProgrammingLanguage() {
         <pre className="programming-language__code kto-offset-top-16">
           <code
             className="hljs"
+            /* oxlint-disable-next-line react/no-danger */
             dangerouslySetInnerHTML={{
               __html: highlightedCodeTabs[activeIndex].highlightedCode,
             }}
@@ -61,4 +63,4 @@ export function ProgrammingLanguage() {
       </div>
     </div>
   );
-}
+};

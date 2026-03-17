@@ -12,16 +12,14 @@ interface HomePageProps {
   initialSortByName: boolean;
 }
 
-export function HomePage({ initialSortByName }: HomePageProps) {
-  return (
-    <ThemeProvider theme="dark">
-      <div className="overview-page">
-        <HeaderSection />
-        <LatestFromKotlinSection />
-        <WhyKotlinSection />
-        <UsageSection initialSortByName={initialSortByName} />
-        <StartSection />
-      </div>
-    </ThemeProvider>
-  );
-}
+export const HomePage = ({ initialSortByName }: HomePageProps) => (
+  <ThemeProvider theme="dark">
+    <div className="overview-page">
+      <HeaderSection />
+      <LatestFromKotlinSection />
+      <WhyKotlinSection />
+      <UsageSection initialSortByName={initialSortByName} />
+      <StartSection />
+    </div>
+  </ThemeProvider>
+);

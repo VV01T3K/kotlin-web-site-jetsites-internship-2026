@@ -1,4 +1,4 @@
-import Button from "@rescui/button";
+import { Button } from "@rescui/button";
 import { useTextStyles } from "@rescui/typography";
 import { ThemeProvider } from "@rescui/ui-contexts";
 import cn from "classnames";
@@ -11,25 +11,24 @@ import { sections } from "./sections-data";
 
 import "./index.scss";
 
-function YouTubeEmbed({ id, title }: { id: string; title: string }) {
-  return (
-    <div className="why-kotlin-section__youtube">
-      <iframe
-        width="560"
-        height="315"
-        title={title}
-        loading="lazy"
-        frameBorder="0"
-        allowFullScreen
-        referrerPolicy="strict-origin-when-cross-origin"
-        src={`https://www.youtube-nocookie.com/embed/${id}?rel=0`}
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      />
-    </div>
-  );
-}
+const YouTubeEmbed = ({ id, title }: { id: string; title: string }) => (
+  <div className="why-kotlin-section__youtube">
+    <iframe
+      width="560"
+      height="315"
+      title={title}
+      loading="lazy"
+      frameBorder="0"
+      allowFullScreen
+      referrerPolicy="strict-origin-when-cross-origin"
+      src={`https://www.youtube-nocookie.com/embed/${id}?rel=0`}
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      sandbox="allow-scripts allow-presentation allow-popups allow-popups-to-escape-sandbox"
+    />
+  </div>
+);
 
-function WhyKotlinContent() {
+const WhyKotlinContent = () => {
   const textCn = useTextStyles();
 
   return (
@@ -39,9 +38,9 @@ function WhyKotlinContent() {
 
         <ProgrammingLanguage />
 
-        {sections.map((section, index) => (
+        {sections.map((section) => (
           <div
-            key={index}
+            key={section.buttonLink}
             className="kto-grid kto-grid-gap-32 kto-offset-top-96 kto-offset-top-md-48"
           >
             <div className="kto-col-4 kto-col-md-12">
@@ -76,12 +75,10 @@ function WhyKotlinContent() {
       </Container>
     </Section>
   );
-}
+};
 
-export function WhyKotlinSection() {
-  return (
-    <ThemeProvider theme="light">
-      <WhyKotlinContent />
-    </ThemeProvider>
-  );
-}
+export const WhyKotlinSection = () => (
+  <ThemeProvider theme="light">
+    <WhyKotlinContent />
+  </ThemeProvider>
+);

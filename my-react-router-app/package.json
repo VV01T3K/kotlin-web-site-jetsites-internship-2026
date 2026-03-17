@@ -4,11 +4,11 @@
   "type": "module",
   "scripts": {
     "dev": "bun --bun react-router dev --host",
-    "build": "bun --bun react-router build",
+    "build": "tsgo && bun --bun react-router build",
     "start": "bun --bun react-router-serve ./build/server/index.js",
-    "typecheck": "bun --bun react-router typegen && tsgo --noEmit",
-    "check": "ultracite check",
-    "fix": "ultracite fix"
+    "typecheck": "bun --bun react-router typegen && tsgo",
+    "check": "ultracite check && tsgo",
+    "fix": "ultracite fix && tsgo"
   },
   "dependencies": {
     "@jetbrains/kotlin-web-site-ui": "4.14.5",

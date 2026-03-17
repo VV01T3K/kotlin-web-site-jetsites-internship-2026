@@ -45,34 +45,30 @@ export const links: Route.LinksFunction = () => [
   },
 ];
 
-function SiteChrome({ children }: { children: ReactNode }) {
-  return (
-    <div className="site-shell">
-      <Header productWebUrl={releases.latest.url} />
-      <main className="site-shell__content">{children}</main>
-      <Footer />
-    </div>
-  );
-}
+const SiteChrome = ({ children }: { children: ReactNode }) => (
+  <div className="site-shell">
+    <Header productWebUrl={releases.latest.url} />
+    <main className="site-shell__content">{children}</main>
+    <Footer />
+  </div>
+);
 
-export function Layout({ children }: { children: ReactNode }) {
-  return (
-    <html lang="en" className="page__index-new page_restyled_v2">
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <style>{CRITICAL_MOBILE_STYLES}</style>
-        <Meta />
-        <Links />
-      </head>
-      <body className="page_js_yes">
-        {children}
-        <ScrollRestoration />
-        <Scripts />
-      </body>
-    </html>
-  );
-}
+export const Layout = ({ children }: { children: ReactNode }) => (
+  <html lang="en" className="page__index-new page_restyled_v2">
+    <head>
+      <meta charSet="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <style>{CRITICAL_MOBILE_STYLES}</style>
+      <Meta />
+      <Links />
+    </head>
+    <body className="page_js_yes">
+      {children}
+      <ScrollRestoration />
+      <Scripts />
+    </body>
+  </html>
+);
 
 export default function App() {
   return (
@@ -82,7 +78,7 @@ export default function App() {
   );
 }
 
-export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
+export const ErrorBoundary = ({ error }: Route.ErrorBoundaryProps) => {
   let message = "Oops!";
   let details = "An unexpected error occurred.";
   let stack: string | undefined;
@@ -113,4 +109,4 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
       </section>
     </SiteChrome>
   );
-}
+};

@@ -1,4 +1,4 @@
-import Button from "@rescui/button";
+import { Button } from "@rescui/button";
 import { useTextStyles } from "@rescui/typography";
 import cn from "classnames";
 
@@ -12,7 +12,7 @@ import { newsData } from "./data";
 
 import "./index.scss";
 
-export function LatestFromKotlinSection() {
+export const LatestFromKotlinSection = () => {
   const textCn = useTextStyles();
 
   return (
@@ -84,4 +84,4 @@ export function LatestFromKotlinSection() {
       </Section>
     </div>
   );
-}
+};

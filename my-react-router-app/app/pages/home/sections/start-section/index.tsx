@@ -1,4 +1,4 @@
-import Button from "@rescui/button";
+import { Button } from "@rescui/button";
 import { useTextStyles } from "@rescui/typography";
 import { ThemeProvider } from "@rescui/ui-contexts";
 import cn from "classnames";
@@ -7,7 +7,7 @@ import { Container, Section } from "~/components/layout/layout";
 
 import "./index.scss";
 
-function StartSectionContent() {
+const StartSectionContent = () => {
   const textCn = useTextStyles();
 
   return (
@@ -29,12 +29,10 @@ function StartSectionContent() {
       </Container>
     </Section>
   );
-}
+};
 
-export function StartSection() {
-  return (
-    <ThemeProvider theme="dark">
-      <StartSectionContent />
-    </ThemeProvider>
-  );
-}
+export const StartSection = () => (
+  <ThemeProvider theme="dark">
+    <StartSectionContent />
+  </ThemeProvider>
+);

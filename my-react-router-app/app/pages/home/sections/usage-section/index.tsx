@@ -1,9 +1,9 @@
-import Button from "@rescui/button";
+import { Button } from "@rescui/button";
 import { cardCn } from "@rescui/card";
 import { useTextStyles } from "@rescui/typography";
 import { ThemeProvider } from "@rescui/ui-contexts";
 import cn from "classnames";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 import { Container, Section } from "~/components/layout/layout";
 
@@ -11,11 +11,11 @@ import { testimonials } from "./data";
 
 import "./index.scss";
 
-function UsageSectionContent({
+const UsageSectionContent = ({
   initialSortByName,
 }: {
   initialSortByName: boolean;
-}) {
+}) => {
   const textCn = useTextStyles();
   const [sortByName, setSortByName] = useState(initialSortByName);
 
@@ -23,21 +23,20 @@ function UsageSectionContent({
     ? [...testimonials].toSorted((a, b) => a.company.localeCompare(b.company))
     : testimonials;
 
+  const handleSortClick = useCallback(() => {
+    const next = !sortByName;
+    setSortByName(next);
+    // eslint-disable-next-line unicorn/no-document-cookie
+    document.cookie = `kotlin-testimonials-order=${JSON.stringify(next ? "name" : "default")}; path=/; max-age=31536000`;
+  }, [sortByName]);
+
   return (
     <Section className="usage-section">
       <Container>
         <h2 className={textCn("rs-hero")}>Kotlin Usage Highlights</h2>
 
         <div className="usage-section__sort kto-offset-top-16">
-          <Button
-            mode="outline"
-            size="s"
-            onClick={() => {
-              const next = !sortByName;
-              setSortByName(next);
-              document.cookie = `kotlin-testimonials-order=${JSON.stringify(next ? "name" : "default")}; path=/; max-age=31536000`;
-            }}
-          >
+          <Button mode="outline" size="s" onClick={handleSortClick}>
             Sort: {sortByName ? "A-Z" : "Default"}
           </Button>
         </div>
@@ -72,16 +71,14 @@ function UsageSectionContent({
       </Container>
     </Section>
   );
-}
+};
 
-export function UsageSection({
+export const UsageSection = ({
   initialSortByName,
 }: {
   initialSortByName: boolean;
-}) {
-  return (
-    <ThemeProvider theme="light">
-      <UsageSectionContent initialSortByName={initialSortByName} />
-    </ThemeProvider>
-  );
-}
+}) => (
+  <ThemeProvider theme="light">
+    <UsageSectionContent initialSortByName={initialSortByName} />
+  </ThemeProvider>
+);

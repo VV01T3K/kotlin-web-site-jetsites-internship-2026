@@ -1,16 +1,14 @@
 import type { PropsWithChildren } from "react";
 
-export function Section({
+export const Section = ({
   children,
   className = "",
-}: PropsWithChildren<{ className?: string }>) {
-  return (
-    <section className={`kto-layout-section ${className}`.trim()}>
-      {children}
-    </section>
-  );
-}
+}: PropsWithChildren<{ className?: string }>) => (
+  <section className={`kto-layout-section ${className}`.trim()}>
+    {children}
+  </section>
+);
 
-export function Container({ children }: PropsWithChildren) {
-  return <div className="kto-layout-container">{children}</div>;
-}
+export const Container = ({ children }: PropsWithChildren) => (
+  <div className="kto-layout-container">{children}</div>
+);

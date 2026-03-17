@@ -1,4 +1,4 @@
-import Button from "@rescui/button";
+import { Button } from "@rescui/button";
 import { cardCn } from "@rescui/card";
 import { useTextStyles } from "@rescui/typography";
 import cn from "classnames";
@@ -9,7 +9,7 @@ import { cardsData } from "./data";
 
 import "./index.scss";
 
-export function HeaderSection() {
+export const HeaderSection = () => {
   const textCn = useTextStyles();
 
   return (
@@ -106,4 +106,4 @@ export function HeaderSection() {
       </Section>
     </div>
   );
-}
+};

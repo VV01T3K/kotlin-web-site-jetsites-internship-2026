@@ -1,6 +1,6 @@
-export function loader() {
+export const loader = () => {
   throw new Response("Page not found", { status: 404 });
-}
+};
 
 export default function NotFoundRoute() {
   return null;

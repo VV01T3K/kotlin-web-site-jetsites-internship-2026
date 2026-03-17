@@ -1,5 +1,8 @@
-import KotlinHeader from '@jetbrains/kotlin-web-site-ui/out/components/header/index.js';
-import type { KotlinHeaderProps, KotlinHeaderSearchConfig } from '@jetbrains/kotlin-web-site-ui/out/components/header/index.js';
+import KotlinHeader from "@jetbrains/kotlin-web-site-ui/out/components/header/index.js";
+import type {
+  KotlinHeaderProps,
+  KotlinHeaderSearchConfig,
+} from "@jetbrains/kotlin-web-site-ui/out/components/header/index.js";
 
 const EMPTY_SEARCH_CONFIG: KotlinHeaderSearchConfig = {
   searchAlgoliaApiKey: "",
