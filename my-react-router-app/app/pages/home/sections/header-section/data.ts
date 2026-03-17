@@ -3,41 +3,42 @@ import mobileImg from "../../images/good-for/mobile.svg";
 import serverSideImg from "../../images/good-for/server-side.svg";
 import webImg from "../../images/good-for/web.svg";
 
-export type HeaderCard = {
+export interface HeaderCard {
   id: number;
   title: string;
   subTitle: string;
   link: string;
   img: string;
-};
+}
 
 export const cardsData = [
   {
     id: 1,
-    title: "Multiplatform Mobile",
-    subTitle: "Share the logic of your Android and iOS apps while keeping UX native",
-    link: "#",
     img: mobileImg,
+    link: "#",
+    subTitle:
+      "Share the logic of your Android and iOS apps while keeping UX native",
+    title: "Multiplatform Mobile",
   },
   {
     id: 2,
-    title: "Server-side",
-    subTitle: "Modern development experience with familiar JVM technology",
-    link: "#",
     img: serverSideImg,
+    link: "#",
+    subTitle: "Modern development experience with familiar JVM technology",
+    title: "Server-side",
   },
   {
     id: 3,
-    title: "Web Frontend",
-    subTitle: "Extend your projects to web",
-    link: "#",
     img: webImg,
+    link: "#",
+    subTitle: "Extend your projects to web",
+    title: "Web Frontend",
   },
   {
     id: 4,
-    title: "Android",
-    subTitle: "Recommended by Google for building Android apps",
-    link: "#",
     img: androidImg,
+    link: "#",
+    subTitle: "Recommended by Google for building Android apps",
+    title: "Android",
   },
 ] satisfies HeaderCard[];

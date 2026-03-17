@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import {
   isRouteErrorResponse,
   Links,
@@ -7,11 +8,11 @@ import {
   ScrollRestoration,
 } from "react-router";
 
-import type { Route } from "./+types/root";
-import type { ReactNode } from "react";
 import Footer from "~/components/footer";
 import Header from "~/components/header";
 import { releases } from "~/data/site/releases";
+
+import type { Route } from "./+types/root";
 
 import "./app.scss";
 
@@ -24,23 +25,23 @@ const CRITICAL_MOBILE_STYLES = `
 `;
 
 export const links: Route.LinksFunction = () => [
-  { rel: "icon", type: "image/svg+xml", href: "/assets/images/favicon.svg" },
-  { rel: "alternate icon", href: "/assets/images/favicon.ico" },
-  { rel: "apple-touch-icon", href: "/assets/images/apple-touch-icon.png" },
+  { href: "/assets/images/favicon.svg", rel: "icon", type: "image/svg+xml" },
+  { href: "/assets/images/favicon.ico", rel: "alternate icon" },
+  { href: "/assets/images/apple-touch-icon.png", rel: "apple-touch-icon" },
   {
+    href: "/assets/images/apple-touch-icon-72x72.png",
     rel: "apple-touch-icon",
     sizes: "72x72",
-    href: "/assets/images/apple-touch-icon-72x72.png",
   },
   {
+    href: "/assets/images/apple-touch-icon-114x114.png",
     rel: "apple-touch-icon",
     sizes: "114x114",
-    href: "/assets/images/apple-touch-icon-114x114.png",
   },
   {
+    href: "/assets/images/apple-touch-icon-144x144.png",
     rel: "apple-touch-icon",
     sizes: "144x144",
-    href: "/assets/images/apple-touch-icon-144x144.png",
   },
 ];
 
@@ -94,7 +95,7 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
         : error.statusText || details;
   } else if (import.meta.env.DEV && error instanceof Error) {
     details = error.message;
-    stack = error.stack;
+    ({ stack } = error);
   }
 
   return (

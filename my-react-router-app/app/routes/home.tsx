@@ -1,6 +1,7 @@
-import type { Route } from "./+types/home";
-import { HomePage } from "~/pages/home/home-page";
 import { testimonialOrderCookie } from "~/cookies.server";
+import { HomePage } from "~/pages/home/home-page";
+
+import type { Route } from "./+types/home";
 
 const title = "Kotlin Programming Language";
 const description =
@@ -8,24 +9,26 @@ const description =
 const image = "/assets/images/open-graph/general.png";
 
 export async function loader({ request }: Route.LoaderArgs) {
-  const cookie = await testimonialOrderCookie.parse(request.headers.get("Cookie"));
+  const cookie = await testimonialOrderCookie.parse(
+    request.headers.get("Cookie")
+  );
   const initialSortByName = cookie === "name";
   return { initialSortByName };
 }
 
-export function meta({ }: Route.MetaArgs) {
+export function meta({}: Route.MetaArgs) {
   return [
     { title },
-    { name: "description", content: description },
-    { property: "og:title", content: title },
-    { property: "og:description", content: description },
-    { property: "og:type", content: "website" },
-    { property: "og:image", content: image },
-    { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:site", content: "@kotlin" },
-    { name: "twitter:title", content: title },
-    { name: "twitter:description", content: description },
-    { name: "twitter:image", content: image },
+    { content: description, name: "description" },
+    { content: title, property: "og:title" },
+    { content: description, property: "og:description" },
+    { content: "website", property: "og:type" },
+    { content: image, property: "og:image" },
+    { content: "summary_large_image", name: "twitter:card" },
+    { content: "@kotlin", name: "twitter:site" },
+    { content: title, name: "twitter:title" },
+    { content: description, name: "twitter:description" },
+    { content: image, name: "twitter:image" },
   ];
 }
 

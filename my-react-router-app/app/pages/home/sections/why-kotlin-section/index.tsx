@@ -4,10 +4,10 @@ import { ThemeProvider } from "@rescui/ui-contexts";
 import cn from "classnames";
 
 import { Container, Section } from "~/components/layout/layout";
-import multiplatformImg from "../../images/index/multiplatform.svg";
 
-import { sections } from "./sections-data";
+import multiplatformImg from "../../images/index/multiplatform.svg";
 import { ProgrammingLanguage } from "./programming-language";
+import { sections } from "./sections-data";
 
 import "./index.scss";
 
@@ -46,7 +46,9 @@ function WhyKotlinContent() {
           >
             <div className="kto-col-4 kto-col-md-12">
               <h3 className={textCn("rs-h2")}>{section.title}</h3>
-              <p className={cn(textCn("rs-text-2"), "kto-offset-top-32")}>{section.description}</p>
+              <p className={cn(textCn("rs-text-2"), "kto-offset-top-32")}>
+                {section.description}
+              </p>
               <div className="kto-offset-top-32">
                 <Button mode="outline" size="l" href={section.buttonLink}>
                   {section.buttonText}
@@ -56,7 +58,10 @@ function WhyKotlinContent() {
 
             <div className="kto-col-8 kto-col-md-12">
               {section.media === "youtube" && section.youtubeId ? (
-                <YouTubeEmbed id={section.youtubeId} title={section.buttonText} />
+                <YouTubeEmbed
+                  id={section.youtubeId}
+                  title={section.buttonText}
+                />
               ) : (
                 <img
                   src={multiplatformImg}

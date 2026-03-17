@@ -24,7 +24,12 @@ export function HeaderSection() {
               <Button size="l" href="#">
                 Get started
               </Button>
-              <Button mode="outline" size="l" href="#" className="header-section__why-btn">
+              <Button
+                mode="outline"
+                size="l"
+                href="#"
+                className="header-section__why-btn"
+              >
                 Why Kotlin
               </Button>
             </div>
@@ -39,7 +44,10 @@ export function HeaderSection() {
               />
               <p className={textCn("rs-text-2")}>
                 Developed by{" "}
-                <a className={textCn("rs-link")} href="https://www.jetbrains.com/">
+                <a
+                  className={textCn("rs-link")}
+                  href="https://www.jetbrains.com/"
+                >
                   JetBrains
                 </a>{" "}
                 &amp; Open-source{" "}
@@ -60,20 +68,24 @@ export function HeaderSection() {
                 href={card.link}
                 className={cn(
                   cardCn({
-                    theme: "dark",
-                    mode: "classic",
                     isClickable: true,
+                    mode: "classic",
+                    theme: "dark",
                   }),
                   "header-section__card",
                   {
                     "header-section__card_mobile-hidden": index >= 2,
                   },
-                  "kto-col-3 kto-col-md-6 kto-col-sm-12",
+                  "kto-col-3 kto-col-md-6 kto-col-sm-12"
                 )}
               >
                 <img src={card.img} alt="" />
-                <h2 className={cn(textCn("rs-h3"), "kto-offset-top-16")}>{card.title}</h2>
-                <p className={cn(textCn("rs-text-2"), "kto-offset-top-16")}>{card.subTitle}</p>
+                <h2 className={cn(textCn("rs-h3"), "kto-offset-top-16")}>
+                  {card.title}
+                </h2>
+                <p className={cn(textCn("rs-text-2"), "kto-offset-top-16")}>
+                  {card.subTitle}
+                </p>
               </a>
             ))}
           </div>
@@ -83,7 +95,10 @@ export function HeaderSection() {
               Multiplatform for Other Platforms
             </a>
             {", "}
-            <a className={textCn("rs-link")} href="/docs/data-science-overview.html">
+            <a
+              className={textCn("rs-link")}
+              href="/docs/data-science-overview.html"
+            >
               Data Science
             </a>
           </p>

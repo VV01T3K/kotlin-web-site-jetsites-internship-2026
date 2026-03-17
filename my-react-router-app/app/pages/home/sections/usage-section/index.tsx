@@ -1,10 +1,9 @@
-import { useState } from "react";
-
 import Button from "@rescui/button";
 import { cardCn } from "@rescui/card";
 import { useTextStyles } from "@rescui/typography";
 import { ThemeProvider } from "@rescui/ui-contexts";
 import cn from "classnames";
+import { useState } from "react";
 
 import { Container, Section } from "~/components/layout/layout";
 
@@ -12,12 +11,16 @@ import { testimonials } from "./data";
 
 import "./index.scss";
 
-function UsageSectionContent({ initialSortByName }: { initialSortByName: boolean }) {
+function UsageSectionContent({
+  initialSortByName,
+}: {
+  initialSortByName: boolean;
+}) {
   const textCn = useTextStyles();
   const [sortByName, setSortByName] = useState(initialSortByName);
 
   const sortedTestimonials = sortByName
-    ? [...testimonials].sort((a, b) => a.company.localeCompare(b.company))
+    ? [...testimonials].toSorted((a, b) => a.company.localeCompare(b.company))
     : testimonials;
 
   return (
@@ -47,9 +50,9 @@ function UsageSectionContent({ initialSortByName }: { initialSortByName: boolean
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
-                cardCn({ theme: "light", mode: "classic", isClickable: true }),
+                cardCn({ isClickable: true, mode: "classic", theme: "light" }),
                 "usage-section__card",
-                "kto-col-4 kto-col-md-6 kto-col-sm-12",
+                "kto-col-4 kto-col-md-6 kto-col-sm-12"
               )}
             >
               <img
@@ -60,7 +63,9 @@ function UsageSectionContent({ initialSortByName }: { initialSortByName: boolean
                   "usage-section__logo_spring": item.company === "Spring",
                 })}
               />
-              <p className={cn(textCn("rs-text-2"), "kto-offset-top-8")}>{item.text}</p>
+              <p className={cn(textCn("rs-text-2"), "kto-offset-top-8")}>
+                {item.text}
+              </p>
             </a>
           ))}
         </div>
@@ -69,7 +74,11 @@ function UsageSectionContent({ initialSortByName }: { initialSortByName: boolean
   );
 }
 
-export function UsageSection({ initialSortByName }: { initialSortByName: boolean }) {
+export function UsageSection({
+  initialSortByName,
+}: {
+  initialSortByName: boolean;
+}) {
   return (
     <ThemeProvider theme="light">
       <UsageSectionContent initialSortByName={initialSortByName} />

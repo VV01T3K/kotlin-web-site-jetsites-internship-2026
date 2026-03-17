@@ -1,11 +1,10 @@
-export type ProgrammingLanguageTab = {
+export interface ProgrammingLanguageTab {
   title: string;
   code: string;
-};
+}
 
 export const tabs = [
   {
-    title: "Concise",
     code: `data class Employee(
    val name: String,
    val email: String,
@@ -21,9 +20,9 @@ fun main() {                                      // Function at the top level
       "alice@mycompany.com", MyCompany.name)
    println(employee)
 }`,
+    title: "Concise",
   },
   {
-    title: "Safe",
     code: `fun reply(condition: Boolean): String? =          // Nullability is part of Kotlin's type system
    if (condition) "I'm fine" else null
 
@@ -43,9 +42,9 @@ fun main() {
    reply(condition = true) ?: error()             // Kotlin can infer that the result is non-null
    println(nonNull)
 }`,
+    title: "Safe",
   },
   {
-    title: "Expressive",
     code: `fun main() {
    val map = mapOf(1 to "one", 2 to "two")
    for ((k, v) in map) {                            // Traverse a map or a list of pairs
@@ -74,9 +73,9 @@ fun main() {
        ?.takeIf { it.status == Status.FIXED }       // Use the value only if the condition is true
    println(fixedIssue)
 }`,
+    title: "Expressive",
   },
   {
-    title: "Interoperable",
     code: `// Use any existing JVM library or framework
 // Call Kotlin code from Java without an issue
 
@@ -98,9 +97,9 @@ class MessageResource {
 }
 
 data class Message(val id: String?, val text: String)`,
+    title: "Interoperable",
   },
   {
-    title: "Multiplatform",
     code: `// Common
 // Declare signatures to use them in the common code
 // Provide platform-specific implementations in the platform modules
@@ -120,5 +119,6 @@ interface PlatformSocketListener {
     fun onMessage(msg: String)
     fun onClosing(code: Int, reason: String)
 }`,
+    title: "Multiplatform",
   },
 ] satisfies ProgrammingLanguageTab[];

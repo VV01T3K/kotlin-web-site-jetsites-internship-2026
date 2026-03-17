@@ -4,11 +4,10 @@ import cn from "classnames";
 
 import { Container, Section } from "~/components/layout/layout";
 
-import bannerAvifImg from "../../images/index/banners/kotlin-1.6.20.avif";
-import bannerImg from "../../images/index/banners/kotlin-1.6.20.png";
 import bannerMobileAvifImg from "../../images/index/banners/kotlin-1.6.20-mobile.avif";
 import bannerMobileImg from "../../images/index/banners/kotlin-1.6.20-mobile.png";
-
+import bannerAvifImg from "../../images/index/banners/kotlin-1.6.20.avif";
+import bannerImg from "../../images/index/banners/kotlin-1.6.20.png";
 import { newsData } from "./data";
 
 import "./index.scss";
@@ -52,7 +51,10 @@ export function LatestFromKotlinSection() {
 
           <div className="kto-grid kto-grid-gap-32 kto-offset-top-32">
             {newsData.map((news) => (
-              <div key={news.link} className="kto-col-3 kto-col-md-6 kto-col-sm-12">
+              <div
+                key={news.link}
+                className="kto-col-3 kto-col-md-6 kto-col-sm-12"
+              >
                 <p className={textCn("rs-text-3")}>{news.tag}</p>
                 <h3 className={cn(textCn("rs-text-2"), "kto-offset-top-8")}>
                   <a

@@ -1,11 +1,10 @@
-import { useState } from "react";
-
 import Button from "@rescui/button";
 import { Tab, TabList, TabSeparator } from "@rescui/tab-list";
 import { useTextStyles } from "@rescui/typography";
 import cn from "classnames";
 import hljs from "highlight.js/lib/core";
 import kotlin from "highlight.js/lib/languages/kotlin";
+import { useState } from "react";
 
 import { tabs } from "./data";
 
@@ -28,7 +27,9 @@ export function ProgrammingLanguage() {
   return (
     <div className="kto-grid kto-grid-gap-32 kto-offset-top-96 kto-offset-top-md-48">
       <div className="kto-col-4 kto-col-md-12">
-        <h3 className={textCn("rs-h2")}>Modern, concise and safe programming language</h3>
+        <h3 className={textCn("rs-h2")}>
+          Modern, concise and safe programming language
+        </h3>
         <p className={cn(textCn("rs-text-2"), "kto-offset-top-32")}>
           Easy to pick up, so you can create powerful applications immediately.
         </p>
@@ -40,7 +41,10 @@ export function ProgrammingLanguage() {
       </div>
 
       <div className="kto-col-8 kto-col-md-12">
-        <TabList value={activeIndex} onChange={(value) => setActiveIndex(Number(value))}>
+        <TabList
+          value={activeIndex}
+          onChange={(value) => setActiveIndex(Number(value))}
+        >
           {highlightedCodeTabs.map((tab) => (
             <Tab key={tab.title}>{tab.title}</Tab>
           ))}
@@ -49,7 +53,9 @@ export function ProgrammingLanguage() {
         <pre className="programming-language__code kto-offset-top-16">
           <code
             className="hljs"
-            dangerouslySetInnerHTML={{ __html: highlightedCodeTabs[activeIndex].highlightedCode }}
+            dangerouslySetInnerHTML={{
+              __html: highlightedCodeTabs[activeIndex].highlightedCode,
+            }}
           />
         </pre>
       </div>

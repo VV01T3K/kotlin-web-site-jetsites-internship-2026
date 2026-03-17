@@ -4,7 +4,11 @@ export function Section({
   children,
   className = "",
 }: PropsWithChildren<{ className?: string }>) {
-  return <section className={`kto-layout-section ${className}`.trim()}>{children}</section>;
+  return (
+    <section className={`kto-layout-section ${className}`.trim()}>
+      {children}
+    </section>
+  );
 }
 
 export function Container({ children }: PropsWithChildren) {

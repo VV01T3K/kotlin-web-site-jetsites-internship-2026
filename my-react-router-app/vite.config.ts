@@ -17,6 +17,12 @@ logger.warn = (msg, options) => {
 
 export default defineConfig(({ command }) => ({
   customLogger: logger,
+  plugins: [
+    reactRouter(),
+    babel({
+      presets: [reactCompilerPreset()],
+    } as Parameters<typeof babel>[0]),
+  ],
   resolve: {
     alias:
       command === "build"
@@ -29,10 +35,4 @@ export default defineConfig(({ command }) => ({
   ssr: {
     noExternal: [/@rescui\/.*/, /@jetbrains\/kotlin-web-site-ui/],
   },
-  plugins: [
-    reactRouter(),
-    babel({
-      presets: [reactCompilerPreset()],
-    } as Parameters<typeof babel>[0]),
-  ],
 }));
