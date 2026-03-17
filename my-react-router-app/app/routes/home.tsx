@@ -1,5 +1,5 @@
 import type { Route } from "./+types/home";
-import { HomePage } from "~/features/home/home-page";
+import { HomePage } from "~/pages/home/home-page";
 import { testimonialOrderCookie } from "~/cookies.server";
 
 const title = "Kotlin Programming Language";
@@ -13,7 +13,7 @@ export async function loader({ request }: Route.LoaderArgs) {
   return { initialSortByName };
 }
 
-export function meta({}: Route.MetaArgs) {
+export function meta({ }: Route.MetaArgs) {
   return [
     { title },
     { name: "description", content: description },
