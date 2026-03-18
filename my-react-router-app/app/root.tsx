@@ -16,14 +16,6 @@ import type { Route } from "./+types/root";
 
 import "./app.scss";
 
-const CRITICAL_MOBILE_STYLES = `
-  @media (max-width: 767px) {
-    .header-section__card_mobile-hidden {
-      display: none !important;
-    }
-  }
-`;
-
 export const links: Route.LinksFunction = () => [
   {
     as: "font",
@@ -65,7 +57,6 @@ export const Layout = ({ children }: { children: ReactNode }) => (
     <head>
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <style>{CRITICAL_MOBILE_STYLES}</style>
       <Meta />
       <Links />
     </head>

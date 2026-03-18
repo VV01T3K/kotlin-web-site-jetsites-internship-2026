@@ -10,7 +10,7 @@
   &__card {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     height: 192px;
 
     @media (max-width: 640px) {

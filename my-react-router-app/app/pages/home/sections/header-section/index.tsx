@@ -62,7 +62,7 @@ export const HeaderSection = () => {
           </div>
 
           <div className="kto-grid kto-grid-gap-16 kto-offset-top-48">
-            {cardsData.map((card, index) => (
+            {cardsData.map((card) => (
               <a
                 key={card.id}
                 href={card.link}
@@ -73,9 +73,6 @@ export const HeaderSection = () => {
                     theme: "dark",
                   }),
                   "header-section__card",
-                  {
-                    "header-section__card_mobile-hidden": index >= 2,
-                  },
                   "kto-col-3 kto-col-md-6 kto-col-sm-12"
                 )}
               >

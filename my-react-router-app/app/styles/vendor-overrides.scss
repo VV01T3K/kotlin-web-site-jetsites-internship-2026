@@ -11,6 +11,15 @@ a {
   --_rs-typography-link-border-bottom-color-final: white !important;
 }
 
+.header-section__card[data-focus-method] {
+  outline: 1px solid white;
+}
+
+.usage-section__card[data-focus-method] {
+  outline-offset: -1px;
+  outline: 1px solid rgb(25, 25, 28);
+}
+
 // ─── @rescui/button ─────────────────────────────────────────────────────────
 
 :root {

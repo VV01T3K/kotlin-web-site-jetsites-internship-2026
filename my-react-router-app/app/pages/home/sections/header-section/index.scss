@@ -32,10 +32,4 @@
   &__card {
     text-decoration: none;
   }
-
-  &__card_mobile-hidden {
-    @media screen and (max-width: 767px) {
-      display: none;
-    }
-  }
 }
