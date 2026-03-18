@@ -1,6 +1,7 @@
 @use "./styles/styles-v2.scss";
 @use "./styles/grid.scss";
 @use "./components/layout/layout.scss";
+@use "./styles/vendor-overrides.scss";
 
 :root {
   --rs-color-primary-light-theme: var(--ktl-color-primary-light-theme);
