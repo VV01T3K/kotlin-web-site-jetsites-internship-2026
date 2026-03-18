@@ -31,9 +31,7 @@ export const ProgrammingLanguage = () => {
   return (
     <div className="kto-grid kto-grid-gap-32 kto-offset-top-96 kto-offset-top-md-48">
       <div className="kto-col-4 kto-col-md-12">
-        <h3 className={textCn("rs-h2")}>
-          Modern, concise and safe programming language
-        </h3>
+        <h3 className={textCn("rs-h2")}>Modern, concise and safe programming language</h3>
         <p className={cn(textCn("rs-text-2"), "kto-offset-top-32")}>
           Easy to pick up, so you can create powerful applications immediately.
         </p>
@@ -45,21 +43,23 @@ export const ProgrammingLanguage = () => {
       </div>
 
       <div className="kto-col-8 kto-col-md-12">
-        <TabList value={activeIndex} onChange={handleTabChange}>
-          {highlightedCodeTabs.map((tab) => (
-            <Tab key={tab.title}>{tab.title}</Tab>
-          ))}
-        </TabList>
-        <TabSeparator />
-        <pre className="programming-language__code kto-offset-top-16">
-          <code
-            className="hljs"
-            /* oxlint-disable-next-line react/no-danger */
-            dangerouslySetInnerHTML={{
-              __html: highlightedCodeTabs[activeIndex].highlightedCode,
-            }}
-          />
-        </pre>
+        <div className="programming-language__sample">
+          <TabList value={activeIndex} onChange={handleTabChange}>
+            {highlightedCodeTabs.map((tab) => (
+              <Tab key={tab.title}>{tab.title}</Tab>
+            ))}
+          </TabList>
+          <TabSeparator />
+          <pre className="programming-language__code">
+            <code
+              className="hljs"
+              /* oxlint-disable-next-line react/no-danger */
+              dangerouslySetInnerHTML={{
+                __html: highlightedCodeTabs[activeIndex].highlightedCode,
+              }}
+            />
+          </pre>
+        </div>
       </div>
     </div>
   );
