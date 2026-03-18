@@ -4,15 +4,33 @@
 // ─── Shared ──────────────────────────────────────────────────────────────────
 
 :root {
-  // Old version used 48px; new uses 52px.
   --ktl-header-height-mobile: 48px;
+}
+
+// ─── @rescui/button ─────────────────────────────────────────────────────────
+
+:root {
+  // Dark-theme primary colors: old rescui defaulted to blue, new defaults to purple.
+  --rs-color-primary-dark-theme: #4ca6ff;
+  --rs-color-primary-t-dim-dark-theme: rgba(76, 166, 255, 0.8);
+  --rs-color-primary-dim-dark-theme: rgba(76, 166, 255, 0.8);
+  --rs-color-primary-fog-dark-theme: #1c2a45;
+  --rs-color-primary-t-fog-dark-theme: rgba(76, 166, 255, 0.3);
+
+  // Light-theme fog/dim variants (didn't exist in old rescui; derive from Kotlin purple).
+  --rs-color-primary-dim-light-theme: rgba(127, 82, 255, 0.8);
+  --rs-color-primary-fog-light-theme: #d6ccff;
+  --rs-color-primary-t-fog-light-theme: rgba(127, 82, 255, 0.2);
+
+  // Bridge kotlin-web-site-ui theme → rescui (was in legacy base.scss).
+  --rs-color-primary-light-theme: var(--ktl-color-primary-light-theme);
+  --rs-color-primary-t-dim-light-theme: rgba(127, 82, 255, 0.8);
+  --rs-font-family-ui: var(--ktl-font-family-inter);
 }
 
 // ─── Header ──────────────────────────────────────────────────────────────────
 
 .site-shell {
-  // The new header switches to mobile at 960px; old was 640px.
-  // For the 641–960px range, force desktop styles back on.
   @media (max-width: 960px) and (min-width: 641px) {
     .ktl-header-module_header-menu_wh71L {
       padding: 0 32px;
@@ -32,20 +50,16 @@
     }
   }
 
-  // At true mobile (≤640px) restore right-side padding.
   @media (max-width: 640px) {
     .ktl-header-module_header-menu_wh71L {
       padding: 0 16px;
     }
   }
 
-  // Logo large: restore the -4px left nudge.
   .ktl-logo-large-module_link_AOGas {
     margin-left: -4px;
   }
 
-  // Hamburger button: old was 24×24px; new is var(--ktl-header-height-mobile)² = 52×52px.
-  // Also zero out @rescui/button's icon-only padding (12px each side) which inflates the hit area.
   .ktl-menu-button-module_button_wB9Mx {
     width: 24px;
     height: 24px;
@@ -54,32 +68,26 @@
     min-height: 0;
   }
 
-  // Logo small icon-wrap: restore separator border.
   .ktl-logo-small-module_icon-wrap_6hRnO {
     margin-right: 16px;
     padding-right: 16px;
     border-right: 1px solid rgba(255, 255, 255, 0.2);
   }
 
-  // Logo small icon: old was 24×24px with -4px left nudge; new is 20×20px with no nudge.
   .ktl-logo-small-module_icon_NyEog {
     width: 24px;
     height: 24px;
     margin-left: -4px;
   }
 
-  // Mobile menu popup: old had no bottom padding; new adds 56px.
   .ktl-menu-popup-module_menu-popup_Q68IE {
     padding-bottom: 0;
   }
 
-  // Mobile menu items: restore old font size, color, and padding.
-  // Left padding uses --level (0=root, 1=child) for indentation: calc(16px + level*24px).
   .ktl-menu-list-item-module_menu-item_Aruue {
     font-size: 16px;
     line-height: 24px;
     color: rgba(255, 255, 255, 0.75);
-    // stylelint-disable-next-line function-no-unknown
     padding: 8px 16px 8px calc(16px + var(--level) * 24px);
 
     &:hover {
@@ -91,7 +99,6 @@
     }
   }
 
-  // Mobile menu root items (section labels): restore old large-bold style.
   .ktl-menu-list-item-module_menu-item-root_Rzcqb:not(a) {
     font-size: 20px;
     line-height: 32px;
@@ -101,7 +108,6 @@
     padding-top: 8px;
   }
 
-  // Menu item groups: neutralize the border separators added in the new version.
   .ktl-menu-list-module_menu-item-group_mFvUE {
     border-top: none;
     border-bottom: none;
@@ -121,13 +127,11 @@
 // ─── Footer (footer-compact) ─────────────────────────────────────────────────
 
 .site-shell {
-  // Add CSS grid to the base (mobile) footer layout.
-  // Use 1fr auto so the logo column (149px SVG) self-sizes and never overflows.
   .ktl-footer-module_footer_GHyqk {
     display: grid;
     grid-template-columns: 1fr auto;
     grid-template-rows: auto;
-    grid-template-areas: 'social-list social-list' 'nav-list nav-list' 'text logo';
+    grid-template-areas: "social-list social-list" "nav-list nav-list" "text logo";
     grid-column-gap: 16px;
     font-family: var(--ktl-font-family-inter);
     text-rendering: optimizeLegibility;
@@ -135,38 +139,30 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  // Restore old bottom margin (16px → 32px).
-  .ktl-footer-module_nav-list-area_Oblb8 {
-    margin-bottom: 32px;
-  }
-
-  // Remove the extra bottom margin the new version adds.
   .ktl-footer-module_text-area_T8lpL {
     margin-bottom: 0;
   }
 
-  // Logo area: place in the grid cell (grid blockifies inline-block automatically).
   .ktl-footer-module_logo-area_zYm8W {
     grid-area: logo;
     margin-bottom: 0;
     align-self: end;
   }
 
+  .ktl-nav-item-module_nav-item_VvPZQ a {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
   @media (min-width: 641px) {
-    // On desktop restore the old two-column layout:
-    // logo spans the social + nav rows; text+motto spans the full bottom row.
-    // We must re-declare grid-template-areas here because our base (no-query)
-    // rule has higher specificity and would otherwise win over the package's
-    // desktop media-query rule.
     .ktl-footer-module_footer_GHyqk {
       grid-template-columns: 1fr auto;
       grid-template-areas:
-        'social-list logo'
-        'nav-list    logo'
-        'text        text';
+        "social-list logo"
+        "nav-list    logo"
+        "text        text";
     }
 
-    // On desktop the logo sits in the top-right corner (rows 1-2); align to start.
     .ktl-footer-module_logo-area_zYm8W {
       align-self: start;
     }

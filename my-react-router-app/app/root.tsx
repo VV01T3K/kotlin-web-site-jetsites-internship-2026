@@ -26,11 +26,11 @@ const CRITICAL_MOBILE_STYLES = `
 
 export const links: Route.LinksFunction = () => [
   {
-    rel: "preload",
-    href: "/assets/fonts/JetBrainsSans/JetBrainsSans-variable.woff2",
     as: "font",
-    type: "font/woff2",
     crossOrigin: "anonymous",
+    href: "/assets/fonts/JetBrainsSans/JetBrainsSans-variable.woff2",
+    rel: "preload",
+    type: "font/woff2",
   },
   { href: "/assets/images/favicon.svg", rel: "icon", type: "image/svg+xml" },
   { href: "/assets/images/favicon.ico", rel: "alternate icon" },
