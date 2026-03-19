@@ -31,7 +31,9 @@ export const ProgrammingLanguage = () => {
   return (
     <div className="kto-grid kto-grid-gap-32 kto-offset-top-96 kto-offset-top-md-48">
       <div className="kto-col-4 kto-col-md-12">
-        <h3 className={textCn("rs-h2")}>Modern, concise and safe programming language</h3>
+        <h3 className={textCn("rs-h2")}>
+          Modern, concise and safe programming language
+        </h3>
         <p className={cn(textCn("rs-text-2"), "kto-offset-top-32")}>
           Easy to pick up, so you can create powerful applications immediately.
         </p>
