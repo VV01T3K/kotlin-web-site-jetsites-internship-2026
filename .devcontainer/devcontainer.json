@@ -21,7 +21,8 @@
 				"oxc.oxc-vscode",
 				"vitest.explorer",
 				"sst-dev.opencode",
-				"docker.docker"
+				"docker.docker",
+				"tamasfe.even-better-toml"
 			]
 		}
 	},
