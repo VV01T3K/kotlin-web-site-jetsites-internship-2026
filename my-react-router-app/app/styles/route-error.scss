@@ -1,0 +1,19 @@
+.route-error {
+  background: #27282c;
+  color: #fff;
+  min-height: 60vh;
+  padding: 96px 0;
+}
+
+.route-error__container {
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 1276px;
+  padding: 0 22px;
+}
+
+.route-error__stack {
+  margin-top: 24px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+}

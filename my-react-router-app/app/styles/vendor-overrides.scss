@@ -1,0 +1,183 @@
+// Overrides for @jetbrains/kotlin-web-site-ui to match the old (dist/) version.
+// All rules are scoped under .site-shell for higher specificity.
+
+// ─── Shared ──────────────────────────────────────────────────────────────────
+
+:root {
+  --ktl-header-height-mobile: 48px;
+}
+
+a {
+  --_rs-typography-link-border-bottom-color-final: white !important;
+}
+
+.header-section__card[data-focus-method] {
+  outline: 1px solid white;
+}
+
+.usage-section__card[data-focus-method] {
+  outline-offset: -1px;
+  outline: 1px solid rgb(25, 25, 28);
+}
+
+// ─── @rescui/button ─────────────────────────────────────────────────────────
+
+:root {
+  // Dark-theme primary colors: old rescui defaulted to blue, new defaults to purple.
+  --rs-color-primary-dark-theme: #4ca6ff;
+  --rs-color-primary-t-dim-dark-theme: rgba(76, 166, 255, 0.8);
+  --rs-color-primary-dim-dark-theme: rgba(76, 166, 255, 0.8);
+  --rs-color-primary-fog-dark-theme: #1c2a45;
+  --rs-color-primary-t-fog-dark-theme: rgba(76, 166, 255, 0.3);
+
+  // Light-theme fog/dim variants (didn't exist in old rescui; derive from Kotlin purple).
+  --rs-color-primary-dim-light-theme: rgba(127, 82, 255, 0.8);
+  --rs-color-primary-fog-light-theme: #d6ccff;
+  --rs-color-primary-t-fog-light-theme: rgba(127, 82, 255, 0.2);
+
+  // Bridge kotlin-web-site-ui theme → rescui (was in legacy base.scss).
+  --rs-color-primary-light-theme: var(--ktl-color-primary-light-theme);
+  --rs-color-primary-t-dim-light-theme: rgba(127, 82, 255, 0.8);
+  --rs-font-family-ui: var(--ktl-font-family-inter);
+}
+
+// ─── Header ──────────────────────────────────────────────────────────────────
+
+.site-shell {
+  @media (max-width: 960px) and (min-width: 641px) {
+    .ktl-header-module_header-menu_wh71L {
+      padding: 0 32px;
+      height: 64px;
+    }
+
+    .ktl-header-module_desktop-controls_qH0wS {
+      display: flex;
+    }
+
+    .ktl-header-module_mobile-controls_qH0wS {
+      display: none;
+    }
+
+    .ktl-horizontal-menu-module_nav_gbA7M {
+      display: block;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .ktl-header-module_header-menu_wh71L {
+      padding: 0 16px;
+    }
+  }
+
+  .ktl-logo-large-module_link_AOGas {
+    margin-left: -4px;
+  }
+
+  .ktl-menu-button-module_button_wB9Mx {
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    min-width: 0;
+    min-height: 0;
+  }
+
+  .ktl-logo-small-module_icon-wrap_6hRnO {
+    margin-right: 16px;
+    padding-right: 16px;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .ktl-logo-small-module_icon_NyEog {
+    width: 24px;
+    height: 24px;
+    margin-left: -4px;
+  }
+
+  .ktl-menu-popup-module_menu-popup_Q68IE {
+    padding-bottom: 0;
+  }
+
+  .ktl-menu-list-item-module_menu-item_Aruue {
+    font-size: 16px;
+    line-height: 24px;
+    color: rgba(255, 255, 255, 0.75);
+    padding: 8px 16px 8px calc(16px + var(--level) * 24px);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    &.ktl-menu-list-item-module_active-with-child_ier2a {
+      color: #fff;
+    }
+  }
+
+  .ktl-menu-list-item-module_menu-item-root_Rzcqb:not(a) {
+    font-size: 20px;
+    line-height: 32px;
+    font-weight: 600;
+    text-transform: none;
+    color: rgba(255, 255, 255, 0.75);
+    padding-top: 8px;
+  }
+
+  .ktl-menu-list-module_menu-item-group_mFvUE {
+    border-top: none;
+    border-bottom: none;
+    margin: 0;
+    padding: 0;
+
+    &:not(:last-child) {
+      border-bottom: none;
+    }
+
+    & + .ktl-menu-list-module_menu-item-group_mFvUE {
+      border-top: none;
+    }
+  }
+}
+
+// ─── Footer (footer-compact) ─────────────────────────────────────────────────
+
+.site-shell {
+  .ktl-footer-module_footer_GHyqk {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto;
+    grid-template-areas: "social-list social-list" "nav-list nav-list" "text logo";
+    grid-column-gap: 16px;
+    font-family: var(--ktl-font-family-inter);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .ktl-footer-module_text-area_T8lpL {
+    margin-bottom: 0;
+  }
+
+  .ktl-footer-module_logo-area_zYm8W {
+    grid-area: logo;
+    margin-bottom: 0;
+    align-self: end;
+  }
+
+  .ktl-nav-item-module_nav-item_VvPZQ a {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  @media (min-width: 641px) {
+    .ktl-footer-module_footer_GHyqk {
+      grid-template-columns: 1fr auto;
+      grid-template-areas:
+        "social-list logo"
+        "nav-list    logo"
+        "text        text";
+    }
+
+    .ktl-footer-module_logo-area_zYm8W {
+      align-self: start;
+    }
+  }
+}

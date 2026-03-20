@@ -1,5 +1,6 @@
 import { testimonialOrderCookie } from "~/cookies.server";
 import { HomePage } from "~/pages/home/home-page";
+import { getRandomProgrammingLanguageTabIndex } from "~/pages/home/sections/why-kotlin-section/programming-language/state";
 
 import type { Route } from "./+types/home";
 
@@ -13,7 +14,8 @@ export const loader = async ({ request }: Route.LoaderArgs) => {
     request.headers.get("Cookie")
   );
   const initialSortByName = cookie === "name";
-  return { initialSortByName };
+  const initialProgrammingLanguageTab = getRandomProgrammingLanguageTabIndex();
+  return { initialProgrammingLanguageTab, initialSortByName };
 };
 
 export const meta = (_: Route.MetaArgs) => [
@@ -31,5 +33,10 @@ export const meta = (_: Route.MetaArgs) => [
 ];
 
 export default function Home({ loaderData }: Route.ComponentProps) {
-  return <HomePage initialSortByName={loaderData.initialSortByName} />;
+  return (
+    <HomePage
+      initialProgrammingLanguageTab={loaderData.initialProgrammingLanguageTab}
+      initialSortByName={loaderData.initialSortByName}
+    />
+  );
 }

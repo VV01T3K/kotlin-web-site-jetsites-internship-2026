@@ -20,9 +20,15 @@ const highlightedCodeTabs = tabs.map((tab) => ({
   }).value,
 }));
 
-export const ProgrammingLanguage = () => {
+interface ProgrammingLanguageProps {
+  initialProgrammingLanguageTab: number;
+}
+
+export const ProgrammingLanguage = ({
+  initialProgrammingLanguageTab,
+}: ProgrammingLanguageProps) => {
   const textCn = useTextStyles();
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(initialProgrammingLanguageTab);
 
   const handleTabChange = useCallback((value: unknown) => {
     setActiveIndex(Number(value));
@@ -45,21 +51,23 @@ export const ProgrammingLanguage = () => {
       </div>
 
       <div className="kto-col-8 kto-col-md-12">
-        <TabList value={activeIndex} onChange={handleTabChange}>
-          {highlightedCodeTabs.map((tab) => (
-            <Tab key={tab.title}>{tab.title}</Tab>
-          ))}
-        </TabList>
-        <TabSeparator />
-        <pre className="programming-language__code kto-offset-top-16">
-          <code
-            className="hljs"
-            /* oxlint-disable-next-line react/no-danger */
-            dangerouslySetInnerHTML={{
-              __html: highlightedCodeTabs[activeIndex].highlightedCode,
-            }}
-          />
-        </pre>
+        <div className="programming-language__sample">
+          <TabList value={activeIndex} onChange={handleTabChange}>
+            {highlightedCodeTabs.map((tab) => (
+              <Tab key={tab.title}>{tab.title}</Tab>
+            ))}
+          </TabList>
+          <TabSeparator />
+          <pre className="programming-language__code">
+            <code
+              className="hljs"
+              /* oxlint-disable-next-line react/no-danger */
+              dangerouslySetInnerHTML={{
+                __html: highlightedCodeTabs[activeIndex].highlightedCode,
+              }}
+            />
+          </pre>
+        </div>
       </div>
     </div>
   );

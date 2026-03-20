@@ -16,15 +16,14 @@ import type { Route } from "./+types/root";
 
 import "./app.scss";
 
-const CRITICAL_MOBILE_STYLES = `
-  @media (max-width: 767px) {
-    .header-section__card_mobile-hidden {
-      display: none !important;
-    }
-  }
-`;
-
 export const links: Route.LinksFunction = () => [
+  {
+    as: "font",
+    crossOrigin: "anonymous",
+    href: "/assets/fonts/JetBrainsSans/JetBrainsSans-variable.woff2",
+    rel: "preload",
+    type: "font/woff2",
+  },
   { href: "/assets/images/favicon.svg", rel: "icon", type: "image/svg+xml" },
   { href: "/assets/images/favicon.ico", rel: "alternate icon" },
   { href: "/assets/images/apple-touch-icon.png", rel: "apple-touch-icon" },
@@ -58,7 +57,6 @@ export const Layout = ({ children }: { children: ReactNode }) => (
     <head>
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <style>{CRITICAL_MOBILE_STYLES}</style>
       <Meta />
       <Links />
     </head>

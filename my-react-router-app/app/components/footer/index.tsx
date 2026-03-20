@@ -1,4 +1,4 @@
-import KotlinFooter from "@jetbrains/kotlin-web-site-ui/out/components/footer/index.js";
+import KotlinFooter from "@jetbrains/kotlin-web-site-ui/out/components/footer-compact/index.js";
 import { ThemeProvider } from "@rescui/ui-contexts";
 
 export default function Footer() {
