@@ -1,22 +1,36 @@
-FROM node:20-alpine AS development-dependencies-env
-COPY . /app
-WORKDIR /app
-RUN npm ci
+# ---- deps stage: install all dependencies ----
+FROM oven/bun:1-alpine AS deps
 
-FROM node:20-alpine AS production-dependencies-env
-COPY ./package.json package-lock.json /app/
 WORKDIR /app
-RUN npm ci --omit=dev
 
-FROM node:20-alpine AS build-env
-COPY . /app/
-COPY --from=development-dependencies-env /app/node_modules /app/node_modules
-WORKDIR /app
-RUN npm run build
+COPY package.json bun.lock ./
+COPY patches/ ./patches/
 
-FROM node:20-alpine
-COPY ./package.json package-lock.json /app/
-COPY --from=production-dependencies-env /app/node_modules /app/node_modules
-COPY --from=build-env /app/build /app/build
+RUN bun install --frozen-lockfile
+
+# ---- builder stage: build the app ----
+FROM deps AS builder
+
+COPY . .
+
+RUN bun --bun react-router build
+
+# ---- runner stage: production image ----
+FROM oven/bun:1-alpine AS runner
+
 WORKDIR /app
-CMD ["npm", "run", "start"]
+
+ENV NODE_ENV=production
+ENV PORT=3000
+
+# Copy only production dependencies
+COPY package.json bun.lock ./
+COPY patches/ ./patches/
+RUN bun install --frozen-lockfile --production
+
+# Copy build output
+COPY --from=builder /app/build ./build
+
+EXPOSE 3000
+
+CMD ["bun", "--bun", "react-router-serve", "./build/server/index.js"]

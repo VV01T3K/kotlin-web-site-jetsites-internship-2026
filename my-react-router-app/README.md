@@ -1,87 +1,49 @@
-# Welcome to React Router!
+# Kotlin Homepage Migration
 
-A modern, production-ready template for building full-stack React applications using React Router.
+This app is the React Router 7 framework-mode migration of the legacy homepage in `../old_version`.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+## Requirements
 
-## Features
+- `mise`
+- Docker (optional, only if you want to run the container build)
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
-
-## Getting Started
-
-### Installation
-
-Install the dependencies:
+## Install
 
 ```bash
-npm install
+mise exec -- bun install
 ```
 
-### Development
-
-Start the development server with HMR:
+## Development
 
 ```bash
-npm run dev
+mise exec -- bun run dev
 ```
 
-Your application will be available at `http://localhost:5173`.
+The development server runs with SSR enabled.
 
-## Building for Production
-
-Create a production build:
+## Typecheck
 
 ```bash
-npm run build
+mise exec -- bun run typecheck
 ```
 
-## Deployment
-
-### Docker Deployment
-
-To build and run using Docker:
+## Production Build
 
 ```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
+mise exec -- bun run build
 ```
 
-The containerized application can be deployed to any platform that supports Docker, including:
+## Run The Production Server
 
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
+```bash
+PORT=3000 mise exec -- bun run start
 ```
 
-## Styling
+Then open `http://localhost:3000`.
 
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+## Docker
 
----
-
-Built with ❤️ using React Router.
+```bash
+docker build -t kotlin-homepage-router .
+docker run --rm -p 3000:3000 kotlin-homepage-router
+```

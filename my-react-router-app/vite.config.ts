@@ -1,9 +1,7 @@
 import { reactRouter } from "@react-router/dev/vite";
 import babel from "@rolldown/plugin-babel";
-import tailwindcss from "@tailwindcss/vite";
 import { reactCompilerPreset } from "@vitejs/plugin-react";
 import { createLogger, defineConfig } from "vite";
-
 
 // Temporarily suppress the warning about the deprecated `esbuild` option until React Router supports vite 8
 const logger = createLogger();
@@ -17,18 +15,24 @@ logger.warn = (msg, options) => {
   warn(msg, options);
 };
 
-export default defineConfig(async () => {
-  return {
-    customLogger: logger,
-    resolve: {
-      tsconfigPaths: true,
-    },
-    plugins: [
-      tailwindcss(),
-      reactRouter(),
-      babel({
-        presets: [reactCompilerPreset()]
-      } as Parameters<typeof babel>[0]),
-    ],
-  };
-});
+export default defineConfig(({ command }) => ({
+  customLogger: logger,
+  plugins: [
+    reactRouter(),
+    babel({
+      presets: [reactCompilerPreset()],
+    } as Parameters<typeof babel>[0]),
+  ],
+  resolve: {
+    alias:
+      command === "build"
+        ? {
+            "react-dom/server": "react-dom/server.node",
+          }
+        : undefined,
+    tsconfigPaths: true,
+  },
+  ssr: {
+    noExternal: [/@rescui\/.*/, /@jetbrains\/kotlin-web-site-ui/],
+  },
+}));

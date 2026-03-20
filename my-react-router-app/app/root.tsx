@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import {
   isRouteErrorResponse,
   Links,
@@ -7,45 +8,77 @@ import {
   ScrollRestoration,
 } from "react-router";
 
+import Footer from "~/components/footer";
+import Header from "~/components/header";
+import { releases } from "~/data/site/releases";
+
 import type { Route } from "./+types/root";
-import "./app.css";
+
+import "./app.scss";
+
+const CRITICAL_MOBILE_STYLES = `
+  @media (max-width: 767px) {
+    .header-section__card_mobile-hidden {
+      display: none !important;
+    }
+  }
+`;
 
 export const links: Route.LinksFunction = () => [
-  { rel: "preconnect", href: "https://fonts.googleapis.com" },
+  { href: "/assets/images/favicon.svg", rel: "icon", type: "image/svg+xml" },
+  { href: "/assets/images/favicon.ico", rel: "alternate icon" },
+  { href: "/assets/images/apple-touch-icon.png", rel: "apple-touch-icon" },
   {
-    rel: "preconnect",
-    href: "https://fonts.gstatic.com",
-    crossOrigin: "anonymous",
+    href: "/assets/images/apple-touch-icon-72x72.png",
+    rel: "apple-touch-icon",
+    sizes: "72x72",
   },
   {
-    rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
+    href: "/assets/images/apple-touch-icon-114x114.png",
+    rel: "apple-touch-icon",
+    sizes: "114x114",
+  },
+  {
+    href: "/assets/images/apple-touch-icon-144x144.png",
+    rel: "apple-touch-icon",
+    sizes: "144x144",
   },
 ];
 
-export function Layout({ children }: { children: React.ReactNode }) {
+const SiteChrome = ({ children }: { children: ReactNode }) => (
+  <div className="site-shell">
+    <Header productWebUrl={releases.latest.url} />
+    <main className="site-shell__content">{children}</main>
+    <Footer />
+  </div>
+);
+
+export const Layout = ({ children }: { children: ReactNode }) => (
+  <html lang="en" className="page__index-new page_restyled_v2">
+    <head>
+      <meta charSet="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <style>{CRITICAL_MOBILE_STYLES}</style>
+      <Meta />
+      <Links />
+    </head>
+    <body className="page_js_yes">
+      {children}
+      <ScrollRestoration />
+      <Scripts />
+    </body>
+  </html>
+);
+
+export default function App() {
   return (
-    <html lang="en">
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <Meta />
-        <Links />
-      </head>
-      <body>
-        {children}
-        <ScrollRestoration />
-        <Scripts />
-      </body>
-    </html>
+    <SiteChrome>
+      <Outlet />
+    </SiteChrome>
   );
 }
 
-export default function App() {
-  return <Outlet />;
-}
-
-export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
+export const ErrorBoundary = ({ error }: Route.ErrorBoundaryProps) => {
   let message = "Oops!";
   let details = "An unexpected error occurred.";
   let stack: string | undefined;
@@ -56,20 +89,24 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
       error.status === 404
         ? "The requested page could not be found."
         : error.statusText || details;
-  } else if (import.meta.env.DEV && error && error instanceof Error) {
+  } else if (import.meta.env.DEV && error instanceof Error) {
     details = error.message;
-    stack = error.stack;
+    ({ stack } = error);
   }
 
   return (
-    <main className="pt-16 p-4 container mx-auto">
-      <h1>{message}</h1>
-      <p>{details}</p>
-      {stack && (
-        <pre className="w-full p-4 overflow-x-auto">
-          <code>{stack}</code>
-        </pre>
-      )}
-    </main>
+    <SiteChrome>
+      <section className="route-error">
+        <div className="route-error__container">
+          <h1>{message}</h1>
+          <p>{details}</p>
+          {stack ? (
+            <pre className="route-error__stack">
+              <code>{stack}</code>
+            </pre>
+          ) : null}
+        </div>
+      </section>
+    </SiteChrome>
   );
-}
+};

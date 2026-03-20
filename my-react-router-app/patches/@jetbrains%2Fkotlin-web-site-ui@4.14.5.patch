@@ -1,0 +1,75 @@
+diff --git a/out/components/header/header.js b/out/components/header/header.js
+index 2d5fc96ff7fcfd1d8fb3ba24649761c11fede030..ac43c1867007a9816357e25359b74f36654eb674 100644
+--- a/out/components/header/header.js
++++ b/out/components/header/header.js
+@@ -107,20 +107,28 @@ const Header = forwardRef(({
+     fullSearchActive: fullSearchActive,
+     setFullSearchActive: setFullSearchActive,
+     searchBoxViewType: resultViewType
+-  })) : React__default.createElement(React__default.Fragment, null, !isMenuPopupVisible && React__default.createElement(HorizontalMenu, {
++  })) : React__default.createElement(React__default.Fragment, null, React__default.createElement("div", {
++    className: "ktl-header-module_desktop-controls_qH0wS"
++  }, React__default.createElement(HorizontalMenu, {
+     items: itemsWithoutHomeSection,
+     theme: dropdownTheme,
+     linkHandler: linkHandler
+   }), !menuPopupExpanded && React__default.createElement(SearchButton, {
+-    isMobile: isMenuPopupVisible,
++    isMobile: false,
++    onClick: handleSearchButtonClick,
++    isActive: hasSearch
++  })), React__default.createElement("div", {
++    className: "ktl-header-module_mobile-controls_qH0wS"
++  }, !menuPopupExpanded && React__default.createElement(SearchButton, {
++    isMobile: true,
+     onClick: handleSearchButtonClick,
+     isActive: hasSearch
+-  }), isMenuPopupVisible && React__default.createElement(MenuPopup, {
++  }), React__default.createElement(MenuPopup, {
+     items: items,
+     setExpand: setMenuPopupExpanded,
+     isExpanded: menuPopupExpanded,
+     headerRef: headerRef,
+     linkHandler: linkHandler
+-  })))));
++  }))))));
+ });
+ export { Header, SearchResultView };
+diff --git a/out/components/header/index.css b/out/components/header/index.css
+index 82bf92e710c36137a4bf58bd3e51f50dc4bd39a6..c962c2a7d86dfc98b3722e43b2862b5ab4fae267 100644
+--- a/out/components/header/index.css
++++ b/out/components/header/index.css
+@@ -88,11 +88,33 @@
+   box-shadow: none;
+ }
+ 
++.ktl-header-module_desktop-controls_qH0wS {
++  display: flex;
++  align-items: center;
++  margin-left: auto;
++  flex-shrink: 0;
++}
++
++.ktl-header-module_mobile-controls_qH0wS {
++  display: none;
++  align-items: center;
++  margin-left: auto;
++  flex-shrink: 0;
++}
++
+ @media (max-width: 960px) {
+   .ktl-header-module_header-menu_wh71L {
+     padding: 0 0 0 16px;
+     height: var(--ktl-header-height-mobile);
+   }
++
++  .ktl-header-module_desktop-controls_qH0wS {
++    display: none;
++  }
++
++  .ktl-header-module_mobile-controls_qH0wS {
++    display: flex;
++  }
+ }
+ 
+ :root {
