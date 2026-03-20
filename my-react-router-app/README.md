@@ -1,49 +1,21 @@
-# Kotlin Homepage Migration
+# Kotlin website
 
-This app is the React Router 7 framework-mode migration of the legacy homepage in `../old_version`.
+This is a simplified version of https://kotlinlang.org, created for the JetSites 2026 internship test assignment.
 
-## Requirements
+## Running
 
-- `mise`
-- Docker (optional, only if you want to run the container build)
+Docker is required to run locally. From the root directory of the project run:
 
-## Install
-
-```bash
-mise exec -- bun install
+```
+docker compose up
 ```
 
-## Development
+After that, the site will be available at http://localhost:9000.
 
-```bash
-mise exec -- bun run dev
-```
+The site contains only the home page.
 
-The development server runs with SSR enabled.
+The site is built with Flask, Jinja2 templates, and React.
 
-## Typecheck
+## Task description
 
-```bash
-mise exec -- bun run typecheck
-```
-
-## Production Build
-
-```bash
-mise exec -- bun run build
-```
-
-## Run The Production Server
-
-```bash
-PORT=3000 mise exec -- bun run start
-```
-
-Then open `http://localhost:3000`.
-
-## Docker
-
-```bash
-docker build -t kotlin-homepage-router .
-docker run --rm -p 3000:3000 kotlin-homepage-router
-```
+The task description can be found in the `TASK.md` file.

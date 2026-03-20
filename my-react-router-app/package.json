@@ -1,6 +1,8 @@
 {
-  "name": "my-react-router-app",
-  "private": true,
+  "name": "kotlinlang.org",
+  "version": "0.0.1",
+  "description": "kotlinlang.org site",
+  "license": "Apache-2.0",
   "type": "module",
   "scripts": {
     "dev": "bun --bun react-router dev --host",
