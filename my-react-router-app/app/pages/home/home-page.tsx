@@ -9,15 +9,21 @@ import { WhyKotlinSection } from "./sections/why-kotlin-section";
 import "./home-page.scss";
 
 interface HomePageProps {
+  initialProgrammingLanguageTab: number;
   initialSortByName: boolean;
 }
 
-export const HomePage = ({ initialSortByName }: HomePageProps) => (
+export const HomePage = ({
+  initialProgrammingLanguageTab,
+  initialSortByName,
+}: HomePageProps) => (
   <ThemeProvider theme="dark">
     <div className="overview-page">
       <HeaderSection />
       <LatestFromKotlinSection />
-      <WhyKotlinSection />
+      <WhyKotlinSection
+        initialProgrammingLanguageTab={initialProgrammingLanguageTab}
+      />
       <UsageSection initialSortByName={initialSortByName} />
       <StartSection />
     </div>

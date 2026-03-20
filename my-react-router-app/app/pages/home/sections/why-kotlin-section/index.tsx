@@ -28,7 +28,13 @@ const YouTubeEmbed = ({ id, title }: { id: string; title: string }) => (
   </div>
 );
 
-const WhyKotlinContent = () => {
+interface WhyKotlinContentProps {
+  initialProgrammingLanguageTab: number;
+}
+
+const WhyKotlinContent = ({
+  initialProgrammingLanguageTab,
+}: WhyKotlinContentProps) => {
   const textCn = useTextStyles();
 
   return (
@@ -36,7 +42,9 @@ const WhyKotlinContent = () => {
       <Container>
         <h2 className={textCn("rs-hero")}>Why Kotlin</h2>
 
-        <ProgrammingLanguage />
+        <ProgrammingLanguage
+          initialProgrammingLanguageTab={initialProgrammingLanguageTab}
+        />
 
         {sections.map((section) => (
           <div
@@ -77,8 +85,12 @@ const WhyKotlinContent = () => {
   );
 };
 
-export const WhyKotlinSection = () => (
+export const WhyKotlinSection = ({
+  initialProgrammingLanguageTab,
+}: WhyKotlinContentProps) => (
   <ThemeProvider theme="light">
-    <WhyKotlinContent />
+    <WhyKotlinContent
+      initialProgrammingLanguageTab={initialProgrammingLanguageTab}
+    />
   </ThemeProvider>
 );

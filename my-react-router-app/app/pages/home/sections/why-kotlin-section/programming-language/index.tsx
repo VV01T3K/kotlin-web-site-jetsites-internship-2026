@@ -20,9 +20,15 @@ const highlightedCodeTabs = tabs.map((tab) => ({
   }).value,
 }));
 
-export const ProgrammingLanguage = () => {
+interface ProgrammingLanguageProps {
+  initialProgrammingLanguageTab: number;
+}
+
+export const ProgrammingLanguage = ({
+  initialProgrammingLanguageTab,
+}: ProgrammingLanguageProps) => {
   const textCn = useTextStyles();
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(initialProgrammingLanguageTab);
 
   const handleTabChange = useCallback((value: unknown) => {
     setActiveIndex(Number(value));
