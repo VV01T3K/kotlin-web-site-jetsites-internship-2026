@@ -6,6 +6,7 @@ import cn from "classnames";
 import { useCallback, useState } from "react";
 
 import { Container, Section } from "~/components/layout/layout";
+import { testimonialOrderCookie } from "~/cookies";
 
 import { testimonials } from "./data";
 
@@ -23,11 +24,15 @@ const UsageSectionContent = ({
     ? [...testimonials].toSorted((a, b) => a.company.localeCompare(b.company))
     : testimonials;
 
-  const handleSortClick = useCallback(() => {
+  const handleSortClick = useCallback(async () => {
     const next = !sortByName;
     setSortByName(next);
+
+    const cookie = await testimonialOrderCookie.serialize(
+      next ? "name" : "default"
+    );
     // eslint-disable-next-line unicorn/no-document-cookie
-    document.cookie = `kotlin-testimonials-order=${JSON.stringify(next ? "name" : "default")}; path=/; max-age=31536000`;
+    document.cookie = cookie;
   }, [sortByName]);
 
   return (

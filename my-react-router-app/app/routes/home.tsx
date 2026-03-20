@@ -1,4 +1,4 @@
-import { testimonialOrderCookie } from "~/cookies.server";
+import { testimonialOrderCookie } from "~/cookies";
 import { HomePage } from "~/pages/home/home-page";
 import { getRandomProgrammingLanguageTabIndex } from "~/pages/home/sections/why-kotlin-section/programming-language/state";
 
