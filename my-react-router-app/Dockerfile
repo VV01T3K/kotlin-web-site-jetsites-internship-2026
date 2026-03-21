@@ -21,7 +21,7 @@ FROM oven/bun:1-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
-ENV PORT=3000
+ENV PORT=9001
 
 # Copy only production dependencies
 COPY package.json bun.lock ./
@@ -31,6 +31,6 @@ RUN bun install --frozen-lockfile --production
 # Copy build output
 COPY --from=builder /app/build ./build
 
-EXPOSE 3000
+EXPOSE 9001
 
 CMD ["bun", "--bun", "react-router-serve", "./build/server/index.js"]
