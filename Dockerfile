@@ -1,22 +1,36 @@
-FROM python:3.6
+# ---- deps stage: install all dependencies ----
+FROM oven/bun:1-alpine AS deps
 
-RUN apt-get update && \
-    apt-get install -y build-essential ruby
+WORKDIR /app
 
-# see markdown.py for kramdown version
-RUN gem install kramdown -v 1.14.0
+COPY package.json bun.lock ./
+COPY patches/ ./patches/
 
-COPY requirements.txt /tmp
-RUN pip install -r /tmp/requirements.txt
+RUN bun install --frozen-lockfile
 
-RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
-RUN apt-get install -y nodejs
-RUN corepack enable
+# ---- builder stage: build the app ----
+FROM deps AS builder
 
-# Install node dependencies for KTL components (react-renderer)
-COPY package.json yarn.lock /src/
-WORKDIR /src
-RUN yarn install
+COPY . .
 
-EXPOSE 8080
-ENTRYPOINT ["python", "/src/kotlin-website.py"]
+RUN bun --bun react-router build
+
+# ---- runner stage: production image ----
+FROM oven/bun:1-alpine AS runner
+
+WORKDIR /app
+
+ENV NODE_ENV=production
+ENV PORT=9001
+
+# Copy only production dependencies
+COPY package.json bun.lock ./
+COPY patches/ ./patches/
+RUN bun install --frozen-lockfile --production
+
+# Copy build output
+COPY --from=builder /app/build ./build
+
+EXPOSE 9001
+
+CMD ["bun", "--bun", "react-router-serve", "./build/server/index.js"]

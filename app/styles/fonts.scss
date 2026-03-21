@@ -1,0 +1,68 @@
+@use "./config/font";
+@use "./fonts/jetbrains-mono";
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("/assets/fonts/OpenSans-Light-webfont.woff") format("woff");
+  font-style: normal;
+  font-weight: 300;
+  font-display: optional;
+}
+@font-face {
+  font-family: "Open Sans";
+  src: url("/assets/fonts/OpenSans-Regular-webfont.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+  font-display: optional;
+}
+@font-face {
+  font-family: "Open Sans";
+  src: url("/assets/fonts/OpenSans-Italic-webfont.woff") format("woff");
+  font-style: italic;
+  font-weight: 400;
+  font-display: optional;
+}
+@font-face {
+  font-family: "Open Sans";
+  src: url("/assets/fonts/OpenSans-Bold-webfont.woff") format("woff");
+  font-style: normal;
+  font-weight: 700;
+  font-display: optional;
+}
+@font-face {
+  font-family: "Open Sans";
+  src: url("/assets/fonts/OpenSans-BoldItalic-webfont.woff") format("woff");
+  font-style: italic;
+  font-weight: 700;
+  font-display: optional;
+}
+
+// JetBrains Sans
+@font-face {
+  font-family: "JetBrains Sans";
+  src:
+    url("/assets/fonts/JetBrainsSans/JetBrainsSans-variable.woff2")
+      format("woff2 supports variations"),
+    url("/assets/fonts/JetBrainsSans/JetBrainsSans-variable.woff2")
+      format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Serif
+@font-face {
+  font-family: "GraublauSans Bold";
+  src: url("/assets/fonts/GraublauSans-Bold-webfont.woff");
+  font-display: optional;
+}
+@font-face {
+  font-family: "GraublauSlab Regular";
+  src: url("/assets/fonts/GraublauSlab-Regular-webfont.woff");
+  font-display: optional;
+}
+@font-face {
+  font-family: "GraublauSlab Semibold";
+  src: url("/assets/fonts/GraublauSlab-Semibold.woff");
+  font-display: optional;
+}

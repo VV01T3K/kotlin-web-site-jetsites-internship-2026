@@ -1,0 +1,1 @@
+use `mise exec -- bun` to access the `bun` and `bunx` commands

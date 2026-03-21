@@ -1,0 +1,319 @@
+diff --git a/out/components/footer-compact/logo/jetbrains-logo.svg.js b/out/components/footer-compact/logo/jetbrains-logo.svg.js
+index 1e8075490aaa8349a40ddc75a231b0ca213906af..4ac8725cefee020ada0ab39310b5c59b1710b084 100644
+--- a/out/components/footer-compact/logo/jetbrains-logo.svg.js
++++ b/out/components/footer-compact/logo/jetbrains-logo.svg.js
+@@ -1,7 +1,5 @@
+ import * as React from 'react';
+ 
+-var _path, _path2, _path3, _defs;
+-
+ function _extends() {
+   _extends = Object.assign || function (target) {
+     for (var i = 1; i < arguments.length; i++) {
+@@ -21,40 +19,25 @@ function _extends() {
+ }
+ 
+ const SvgJetbrainsLogo = props => /*#__PURE__*/React.createElement("svg", _extends({
+-  width: 149,
+-  height: 32,
++  width: 60,
++  height: 60,
++  viewBox: "0 0 60 60",
+   fill: "none",
+   xmlns: "http://www.w3.org/2000/svg"
+-}, props), /*#__PURE__*/React.createElement("path", {
+-  d: "M43.242 20.293c0 .423-.09.797-.269 1.125a1.86 1.86 0 0 1-.756.762c-.33.18-.698.269-1.12.269H39V25.5h2.54c.955 0 1.812-.214 2.574-.642a4.679 4.679 0 0 0 1.792-1.773c.433-.752.652-1.598.652-2.544V10.509h-3.316v9.784Zm8.928-.911h6.946v-2.804H52.17v-3.181h7.678v-2.888h-10.91v14.987h11.124v-2.888H52.17v-3.226Zm8.932-5.9h4.442v12.01h3.316v-12.01h4.421v-2.973H61.097v2.977l.005-.005Zm23.512 4.5a3.94 3.94 0 0 0-.837-.323c.224-.065.438-.144.638-.244a3.18 3.18 0 0 0 1.29-1.195c.308-.513.467-1.1.467-1.768 0-.761-.209-1.444-.622-2.046-.413-.598-.996-1.066-1.743-1.404-.747-.334-1.603-.503-2.56-.503h-6.656v14.987h6.786c1.006 0 1.902-.174 2.694-.528.787-.353 1.4-.841 1.837-1.473.433-.628.653-1.345.653-2.151 0-.742-.17-1.405-.513-1.992a3.525 3.525 0 0 0-1.43-1.364l-.004.005Zm-6.802-4.959h2.943c.408 0 .767.075 1.08.22.314.144.558.353.732.627.175.269.264.587.264.95 0 .364-.09.708-.264.992a1.726 1.726 0 0 1-.732.652 2.41 2.41 0 0 1-1.08.229h-2.943v-3.675.005Zm5.069 9.067c-.19.284-.458.503-.802.658a2.908 2.908 0 0 1-1.195.229h-3.072v-3.844h3.072c.444 0 .837.084 1.185.249.344.164.618.393.807.692.19.299.289.637.289 1.02 0 .384-.095.712-.284.996Zm14.798-2.654c.831-.398 1.474-.96 1.932-1.683.458-.721.687-1.558.687-2.514 0-.956-.224-1.763-.672-2.48-.448-.716-1.086-1.27-1.907-1.662-.822-.394-1.773-.588-2.858-.588h-6.563v14.987h3.321V20.04h2.161l3.043 5.457h3.789l-3.426-5.86c.17-.06.339-.125.498-.2h-.005Zm-1.076-3.062a1.798 1.798 0 0 1-.791.722c-.344.17-.747.254-1.21.254h-2.988v-4.147h2.988c.463 0 .866.084 1.21.249.343.164.607.408.791.717.185.308.28.677.28 1.095 0 .418-.095.787-.28 1.1v.01ZM106.9 10.51l-5.352 14.987h3.371l1.06-3.306h5.557l1.135 3.306h3.306l-5.482-14.987H106.9Zm-.169 9.171 1.723-5.287.204-.961.204.96 1.842 5.288h-3.973Zm10.347 5.816h3.425V10.51h-3.425v14.987Zm15.51-4.85L126.14 10.51h-3.232v14.987h3.027V15.36l6.414 10.137h3.266V10.51h-3.027v10.137Zm15.763-1.678a4.466 4.466 0 0 0-1.364-1.568 4.95 4.95 0 0 0-2.011-.846l-2.55-.523c-.398-.095-.717-.26-.951-.498a1.228 1.228 0 0 1-.353-.891c0-.324.084-.603.259-.842.169-.239.413-.423.722-.558.308-.134.667-.199 1.075-.199.408 0 .777.07 1.091.21.313.139.557.333.731.587.175.254.264.538.264.861h3.321c-.019-.871-.263-1.643-.722-2.31-.458-.672-1.1-1.195-1.916-1.573-.817-.379-1.753-.568-2.799-.568-1.045 0-1.971.194-2.783.588-.812.393-1.449.936-1.902 1.633-.453.697-.682 1.488-.682 2.38 0 .722.144 1.374.438 1.951a3.954 3.954 0 0 0 1.24 1.45 4.906 4.906 0 0 0 1.862.801l2.699.558c.443.104.791.299 1.05.577.259.28.384.623.384 1.041 0 .334-.095.637-.284.901a1.826 1.826 0 0 1-.792.613c-.338.144-.737.214-1.195.214-.458 0-.891-.08-1.265-.24a1.94 1.94 0 0 1-.866-.686 1.72 1.72 0 0 1-.309-1.021h-3.321c.015.936.264 1.757.757 2.474.488.712 1.16 1.27 2.017 1.668.856.399 1.837.598 2.942.598 1.106 0 2.101-.204 2.958-.612.861-.409 1.528-.971 2.011-1.688.483-.717.722-1.529.722-2.435a4.4 4.4 0 0 0-.488-2.052l.01.005Z",
+-  fill: "#19191C",
+-  style: {
+-    fill: "var(--logo-text-color)"
+-  }
+-}), _path || (_path = /*#__PURE__*/React.createElement("path", {
+-  d: "m10.17 1.83-8.34 8.34A6.252 6.252 0 0 0 0 14.59V29.5A2.5 2.5 0 0 0 2.5 32h14.91a6.26 6.26 0 0 0 4.42-1.83l8.34-8.34A6.252 6.252 0 0 0 32 17.41V2.5A2.5 2.5 0 0 0 29.5 0H14.59a6.26 6.26 0 0 0-4.42 1.83Z",
+-  fill: "url(#jetbrains-logo_svg__a)"
+-})), _path2 || (_path2 = /*#__PURE__*/React.createElement("path", {
+-  d: "M24 8H4v20h20V8Z",
+-  fill: "#000"
+-})), _path3 || (_path3 = /*#__PURE__*/React.createElement("path", {
+-  d: "M15 23.5H6.5v2H15v-2Z",
+-  fill: "#fff"
+-})), _defs || (_defs = /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("linearGradient", {
+-  id: "jetbrains-logo_svg__a",
+-  x1: 0.425,
+-  y1: 31.36,
+-  x2: 31.31,
+-  y2: 0.905,
+-  gradientUnits: "userSpaceOnUse"
+-}, /*#__PURE__*/React.createElement("stop", {
+-  stopColor: "#FF9419"
+-}), /*#__PURE__*/React.createElement("stop", {
+-  offset: 0.43,
+-  stopColor: "#FF021D"
+-}), /*#__PURE__*/React.createElement("stop", {
+-  offset: 0.99,
+-  stopColor: "#E600FF"
+-})))));
++}, props),
++  React.createElement("path", { d: "m60 0h-60v60h60z", fill: "#000" }),
++  React.createElement("g", { fill: "#fff" },
++    React.createElement("path", { d: "m27.6477 48.7061h-22.47045v3.7647h22.47045z" }),
++    React.createElement("path", { d: "m4.94141 15.765 1.7647-1.647c.47059.5882.94118.9412 1.52941.9412.70589 0 1.05883-.4706 1.05883-1.4118v-6.23529h2.70585v6.23529c0 1.1765-.3529 2.1176-.9411 2.7059-.5883.5882-1.52946.9412-2.70593.9412-1.7647.1176-2.70588-.5883-3.41176-1.5295z" }),
++    React.createElement("path", { d: "m12.5864 7.5293h7.8824v2.23529h-5.1765v1.52941h4.7059v2.1176h-4.7059v1.5295h5.2941v2.3529h-7.8823z" }),
++    React.createElement("path", { d: "m23.9998 9.88224h-2.9412v-2.35294h8.5882v2.35294h-2.9411v7.41176h-2.7059z" }),
++    React.createElement("path", { d: "m5.17725 19.5295h5.05885c1.1764 0 2.1176.353 2.7059.8236.3529.3529.5882.9411.5882 1.647 0 1.1765-.5882 1.7647-1.5294 2.2353 1.1764.353 1.8823 1.0588 1.8823 2.353 0 1.647-1.4117 2.7058-3.647 2.7058h-5.05885zm5.64705 3.0589c0-.5883-.4706-.8236-1.17647-.8236h-1.7647v1.7647h1.64706c.82351-.1176 1.29411-.3529 1.29411-.9411zm-.94117 2.8235h-2.11765v1.7647h2.11765c.82357 0 1.29407-.3529 1.29407-.9412 0-.5882-.4705-.8235-1.29407-.8235z" }),
++    React.createElement("path", { d: "m14.3521 19.5295h4.5882c1.5295 0 2.4707.353 3.1766 1.0589.5882.5882.8235 1.2941.8235 2.2353 0 1.5294-.8235 2.4705-2 3.0588l2.3529 3.4117h-3.0588l-2.0001-2.9411h-1.1764v2.9411h-2.7059zm4.4706 4.7059c.9412 0 1.4118-.4706 1.4118-1.1764 0-.8236-.5883-1.1765-1.4118-1.1765h-1.7647v2.3529z" }),
++    React.createElement("path", { d: "m26.1186 19.5295h2.5882l4.1177 9.8824h-2.9412l-.7059-1.7647h-3.7647l-.7059 1.7647h-2.8235zm2.3529 5.8824-1.0588-2.7059-1.0588 2.7059z" }),
++    React.createElement("path", { d: "m33.1772 19.5295h2.7059v9.7647h-2.7059z" }),
++    React.createElement("path", { d: "m36.5884 19.5295h2.4706l4 5.1765v-5.1765h2.7059v9.7647h-2.353l-4.1176-5.2941v5.4118h-2.7059z" }),
++    React.createElement("path", { d: "m45.9995 27.8829 1.5294-1.7647c.9412.8236 2 1.1765 3.1765 1.1765.7059 0 1.1765-.2353 1.1765-.7059s-.353-.5882-1.6471-.9412c-2.1176-.4705-3.6471-1.0588-3.6471-3.0588 0-1.7647 1.4118-3.1764 3.7648-3.1764 1.647 0 2.9411.4705 4 1.2941l-1.4118 1.8823c-.9412-.5882-1.8824-.9412-2.7059-.9412-.7059 0-.9412.2353-.9412.5883 0 .4706.353.5882 1.6471.9412 2.2353.4705 3.6471 1.1764 3.6471 3.0588 0 2-1.5295 3.1765-4.0001 3.1765-1.7647.1176-3.4117-.4706-4.5882-1.5295z" })
++  )
++);
+ 
+ export { SvgJetbrainsLogo as default };
+diff --git a/out/components/footer-compact/nav/nav-data.js b/out/components/footer-compact/nav/nav-data.js
+index 3d1a9741eb07639e5e45c1497c8162a39b8dd99f..304f4f9ef71d3efad428717075017b6050752f69 100644
+--- a/out/components/footer-compact/nav/nav-data.js
++++ b/out/components/footer-compact/nav/nav-data.js
+@@ -26,12 +26,5 @@ const navList = [{
+   url: 'https://job-boards.eu.greenhouse.io/jetbrains?field_11295751101%5B%5D=25001078101',
+   title: 'Careers',
+   isTargetBlank: true
+-}, {
+-  url: 'https://www.jetbrainsmerchandise.com/view-all.html?brand=32',
+-  title: 'Kotlin Merch',
+-  isTargetBlank: true
+-}, {
+-  url: '#opt-out',
+-  title: 'Opt-Out'
+ }];
+ export { navList };
+diff --git a/out/components/footer-compact/social-list/social-data.js b/out/components/footer-compact/social-list/social-data.js
+index b735470e6423ad74db250d521f7cf14f1f567907..124f0503038ca13ee305e9fd41e0e25a32cda3bb 100644
+--- a/out/components/footer-compact/social-list/social-data.js
++++ b/out/components/footer-compact/social-list/social-data.js
+@@ -1,4 +1,3 @@
+-import { BlueskyIcon } from '@rescui/icons';
+ import SvgGithubLogo from './svg/github-logo.svg.js';
+ import SvgRedditLogo from './svg/reddit-logo.svg.js';
+ import SvgSlackLogo from './svg/slack-logo.svg.js';
+@@ -11,15 +10,10 @@ const socialList = [{
+   logoAlt: 'GitHub logo',
+   icon: SvgGithubLogo
+ }, {
+-  url: 'https://x.com/kotlin',
++  url: 'https://twitter.com/kotlin',
+   title: 'Kotlin on Twitter',
+   logoAlt: 'Twitter logo',
+   icon: SvgTwitterLogo
+-}, {
+-  url: 'https://bsky.app/profile/kotlinlang.org',
+-  title: 'Kotlin on Bluesky',
+-  logoAlt: 'Bluesky logo',
+-  icon: BlueskyIcon
+ }, {
+   url: 'https://surveys.jetbrains.com/s3/kotlin-slack-sign-up',
+   title: 'Kotlin Slack',
+diff --git a/out/components/footer-compact/social-list/svg/twitter-logo.svg.js b/out/components/footer-compact/social-list/svg/twitter-logo.svg.js
+index 983b920695991ac014719480f145105f27f81d8b..a7f1a4312a1de4ef02d39ce58c6b8c39e48eda09 100644
+--- a/out/components/footer-compact/social-list/svg/twitter-logo.svg.js
++++ b/out/components/footer-compact/social-list/svg/twitter-logo.svg.js
+@@ -21,12 +21,12 @@ function _extends() {
+ }
+ 
+ const SvgTwitterLogo = props => /*#__PURE__*/React.createElement("svg", _extends({
+-  width: 24,
+-  height: 24,
++  width: 20,
++  height: 17,
+   fill: "none",
+   xmlns: "http://www.w3.org/2000/svg"
+ }, props), _path || (_path = /*#__PURE__*/React.createElement("path", {
+-  d: "M13.317 10.775 19.146 4h-1.381l-5.061 5.883L8.662 4H4l6.112 8.896L4 20h1.381l5.344-6.212L14.994 20h4.662l-6.339-9.225zm-1.891 2.199-.62-.886L5.88 5.04H8l3.977 5.688.62.886 5.168 7.393h-2.121l-4.218-6.033z",
++  d: "M6.29 16.25A11.59 11.59 0 0018 4.58v-.53a8.3 8.3 0 002-2.13 8.36 8.36 0 01-2.36.65A4.16 4.16 0 0019.45.3a8.19 8.19 0 01-2.61 1 4.11 4.11 0 00-7 3.75A11.7 11.7 0 011.39.75a4.11 4.11 0 001.27 5.48A4.06 4.06 0 01.8 5.71a4.11 4.11 0 003.29 4 4.13 4.13 0 01-1.85.07 4.12 4.12 0 003.83 2.85A8.25 8.25 0 011 14.47a7.94 7.94 0 01-1-.06 11.69 11.69 0 006.29 1.84z",
+   fill: "currentColor"
+ })));
+ 
+diff --git a/out/components/header/header.js b/out/components/header/header.js
+index 2d5fc96ff7fcfd1d8fb3ba24649761c11fede030..bcdbc1e8f31b107c26df654207316d33743d09a9 100644
+--- a/out/components/header/header.js
++++ b/out/components/header/header.js
+@@ -22,7 +22,7 @@ var SearchResultView;
+   SearchResultView[SearchResultView["Wide"] = 1] = "Wide";
+ })(SearchResultView || (SearchResultView = {}));
+ 
+-const MENU_POPUP_BREAKPOINT = 960;
++const MENU_POPUP_BREAKPOINT = 640;
+ const Header = forwardRef(({
+   productWebUrl,
+   hasSearch = false,
+@@ -107,20 +107,28 @@ const Header = forwardRef(({
+     fullSearchActive: fullSearchActive,
+     setFullSearchActive: setFullSearchActive,
+     searchBoxViewType: resultViewType
+-  })) : React__default.createElement(React__default.Fragment, null, !isMenuPopupVisible && React__default.createElement(HorizontalMenu, {
++  })) : React__default.createElement(React__default.Fragment, null, React__default.createElement("div", {
++    className: "ktl-header-module_desktop-controls_qH0wS"
++  }, React__default.createElement(HorizontalMenu, {
+     items: itemsWithoutHomeSection,
+     theme: dropdownTheme,
+     linkHandler: linkHandler
+   }), !menuPopupExpanded && React__default.createElement(SearchButton, {
+-    isMobile: isMenuPopupVisible,
++    isMobile: false,
++    onClick: handleSearchButtonClick,
++    isActive: hasSearch
++  })), React__default.createElement("div", {
++    className: "ktl-header-module_mobile-controls_qH0wS"
++  }, !menuPopupExpanded && React__default.createElement(SearchButton, {
++    isMobile: true,
+     onClick: handleSearchButtonClick,
+     isActive: hasSearch
+-  }), isMenuPopupVisible && React__default.createElement(MenuPopup, {
+-    items: items,
++  }), React__default.createElement(MenuPopup, {
++    items: itemsWithoutHomeSection,
+     setExpand: setMenuPopupExpanded,
+     isExpanded: menuPopupExpanded,
+     headerRef: headerRef,
+     linkHandler: linkHandler
+-  })))));
++  }))))));
+ });
+ export { Header, SearchResultView };
+diff --git a/out/components/header/index.css b/out/components/header/index.css
+index 82bf92e710c36137a4bf58bd3e51f50dc4bd39a6..c962c2a7d86dfc98b3722e43b2862b5ab4fae267 100644
+--- a/out/components/header/index.css
++++ b/out/components/header/index.css
+@@ -88,11 +88,33 @@
+   box-shadow: none;
+ }
+ 
++.ktl-header-module_desktop-controls_qH0wS {
++  display: flex;
++  align-items: center;
++  margin-left: auto;
++  flex-shrink: 0;
++}
++
++.ktl-header-module_mobile-controls_qH0wS {
++  display: none;
++  align-items: center;
++  margin-left: auto;
++  flex-shrink: 0;
++}
++
+ @media (max-width: 960px) {
+   .ktl-header-module_header-menu_wh71L {
+     padding: 0 0 0 16px;
+     height: var(--ktl-header-height-mobile);
+   }
++
++  .ktl-header-module_desktop-controls_qH0wS {
++    display: none;
++  }
++
++  .ktl-header-module_mobile-controls_qH0wS {
++    display: flex;
++  }
+ }
+ 
+ :root {
+diff --git a/out/components/header/nav-scheme.js b/out/components/header/nav-scheme.js
+index 5871fbaf57b5ef7b77803c394968035969c37b3e..240597e8ad77f2ce3b9f5503976d75f605154702 100644
+--- a/out/components/header/nav-scheme.js
++++ b/out/components/header/nav-scheme.js
+@@ -61,6 +61,8 @@ const DOCS_NAVIGATION_ITEMS = [{
+   url: '/docs/multiplatform/get-started.html',
+   title: 'Multiplatform development'
+ }];
++const PLAY_HANDS_ON_TITLE = 'Hands-on';
++const PLAY_HANDS_ON_URL = `${PLAY_URL}hands-on`;
+ const navScheme = [{
+   title: HOME_TITLE,
+   url: HOME_URL
+@@ -80,50 +82,9 @@ const navScheme = [{
+     title: ANDROID_TITLE,
+     url: ANDROID_URL
+   }]
+-}, {
+-  title: CASE_STUDIES_TITLE,
+-  url: CASE_STUDIES_URL
+ }, {
+   title: DOCS_TITLE,
+-  url: null,
+-  items: DOCS_NAVIGATION_ITEMS
+-}, {
+-  title: API_TITLE,
+-  url: null,
+-  items: [{
+-    title: API_OVERVIEW_TITLE,
+-    url: API_OVERVIEW_URL
+-  }, {
+-    title: CORE_API_TITLE,
+-    url: CORE_API_URL
+-  }, {
+-    title: TEST_API_TITLE,
+-    url: TEST_API_URL
+-  }, {
+-    title: COROUTINES_API_TITLE,
+-    url: COROUTINES_API_URL
+-  }, {
+-    title: SERIALIZATION_API_TITLE,
+-    url: SERIALIZATION_API_URL
+-  }, {
+-    title: IO_API_TITLE,
+-    url: IO_API_URL
+-  }, {
+-    title: DATETIME_API_TITLE,
+-    url: DATETIME_API_URL
+-  }, {
+-    title: METADATA_JVM_TITLE,
+-    url: METADATA_JVM_URL
+-  }, {
+-    title: KGP_TITLE,
+-    url: KGP_URL
+-  }, {
+-    title: KTOR_TITLE,
+-    url: KTOR_URL
+-  }, {
+-    title: COMPOSE_MULTIPLATFORM,
+-    url: COMPOSE_MULTIPLATFORM_URL
+-  }]
++  url: DOCS_URL
+ }, {
+   title: COMMUNITY_TITLE,
+   url: COMMUNITY_URL
+@@ -136,6 +97,12 @@ const navScheme = [{
+   items: [{
+     title: PLAY_TITLE_FULL,
+     url: PLAY_URL
++  }, {
++    title: PLAY_HANDS_ON_TITLE,
++    url: PLAY_HANDS_ON_URL
++  }, {
++    title: PLAY_EXAMPLES_TITLE,
++    url: PLAY_EXAMPLES_URL
+   }, {
+     title: PLAY_KOANS_TITLE,
+     url: PLAY_KOANS_URL
+diff --git a/out/components/header/search-button/search-button.js b/out/components/header/search-button/search-button.js
+index ee5942d53e54edf41438fd2ceebe51fdf8cb48c4..7979cce03ac60ebb0e419f888feb5aace6622374 100644
+--- a/out/components/header/search-button/search-button.js
++++ b/out/components/header/search-button/search-button.js
+@@ -11,14 +11,15 @@ const SearchButton = ({
+   isActive,
+   isMobile
+ }) => {
+-  return React__default.createElement(React__default.Fragment, null, isMobile ? React__default.createElement(Button, {
++  return React__default.createElement(React__default.Fragment, null, isMobile ? (isActive ? React__default.createElement(Button, {
+     "data-test": DATA_TEST_HEADER_SEARCH_BUTTON,
+     "aria-label": "Search",
+     onClick: onClick,
+     mode: 'clear',
+     size: 'l',
++    className: classNames(styles.button, styles.active),
+     icon: React__default.createElement(SearchIcon, null)
+-  }) : React__default.createElement("button", {
++  }) : null) : React__default.createElement("button", {
+     type: "button",
+     className: classNames(styles.button, {
+       [styles.active]: isActive

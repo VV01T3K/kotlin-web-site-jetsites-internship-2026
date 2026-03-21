@@ -45,3 +45,15 @@ pages/docs/tutorials/kotlin-for-py/
 _teamcity
 dist
 generated
+
+
+
+.agents/skills
+.claude/skills
+.DS_Store
+.env
+/node_modules/
+
+# React Router
+/.react-router/
+/build/

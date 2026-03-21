@@ -1,0 +1,32 @@
+.usage-section {
+  background-color: #fff;
+  padding-top: 96px;
+
+  &__sort {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 192px;
+
+    @media (max-width: 640px) {
+      height: 160px;
+    }
+  }
+
+  &__logo {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+    object-position: left;
+
+    &_spring {
+      padding: 10px 0;
+      box-sizing: border-box;
+    }
+  }
+}

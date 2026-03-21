@@ -1,0 +1,35 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
+{
+	"name": "Node.js & TypeScript",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": ".."
+	},
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	"features": {
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {
+			"moby": false,
+			"azureDnsAutoDetection": false
+		}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"hverlin.mise-vscode",
+				"oxc.oxc-vscode",
+				"vitest.explorer",
+				"sst-dev.opencode",
+				"docker.docker",
+				"tamasfe.even-better-toml"
+			]
+		}
+	},
+	"onCreateCommand": "mise trust && mise install",
+	"forwardPorts": [
+		9001, // Docker Compose app port
+		3000, // bun start app port
+		5173  // bun dev app port
+	]
+}
