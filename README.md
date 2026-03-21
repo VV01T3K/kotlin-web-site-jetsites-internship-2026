@@ -32,6 +32,7 @@ The site will be available at `http://localhost:9001`.
 ## Notes
 
 - The current implementation does not preserve the original Flask backend.
+- Any dependency patches and styling overrides in this repo exist only to keep the migrated page as true to the original look as possible. For a real setup, they are not foundational and can be removed or revisited easily.
 - The original version selected the initial programming-language tab randomly on the client. In an SSR setup, this behavior needs to be reconsidered because random selection on load can work against deterministic rendering, caching, and consistent server output.
 
 ## SSR Improvements Over Original
