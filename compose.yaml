@@ -1,7 +1,7 @@
 services:
   app:
     build:
-      context: ./my-react-router-app
+      context: .
       dockerfile: Dockerfile
     ports:
       - "9001:9001"

@@ -6,7 +6,7 @@ bun = "latest"
 
 [hooks]
 postinstall = '''
-  cd my-react-router-app && test -d node_modules || bun install
+  test -d node_modules || bun install
 '''
 
 [tasks.docker]

@@ -26,5 +26,10 @@
 			]
 		}
 	},
-	"onCreateCommand": "mise trust && mise install"
+	"onCreateCommand": "mise trust && mise install",
+	"forwardPorts": [
+		9001, // Docker Compose app port
+		3000, // bun start app port
+		5173  // bun dev app port
+	]
 }

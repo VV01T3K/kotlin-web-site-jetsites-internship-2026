@@ -25,7 +25,7 @@ The site will be available at `http://localhost:9001`.
 
 ## What Changed
 
-- migrated the page to React Router 7 Framework Mode with SSR enabled in [react-router.config.ts](/workspaces/kotlin-web-site-jetsites-internship-2026/my-react-router-app/react-router.config.ts)
+- migrated the page to React Router 7 Framework Mode with SSR enabled in `react-router.config.ts`
 - updated the stack to modern tooling, and most of the dependencies including React 19, React Router 7, Vite 8, the React Compiler, newer `@rescui` packages, and a newer `@jetbrains/kotlin-web-site-ui`
 - kept the page visually close to the original version while preserving interactive behavior after hydration
 
@@ -38,13 +38,14 @@ The site will be available at `http://localhost:9001`.
 
 - testimonial sort preference was moved from `localStorage` to cookies, so the server can render the correct initial order on first paint
 - Kotlin code sample highlighting is precomputed when rendering instead of being generated after mount, which reduces client-only work and avoids highlight pop-in
-- initial interactive state now comes through route loader data in [app/routes/home.tsx](/workspaces/kotlin-web-site-jetsites-internship-2026/my-react-router-app/app/routes/home.tsx), which makes the SSR and hydrated client agree on the first render
-- document metadata, preload links, and app shell layout are defined in [app/root.tsx](/workspaces/kotlin-web-site-jetsites-internship-2026/my-react-router-app/app/root.tsx), keeping server and client output aligned
+- initial interactive state now comes through route loader data in [app/routes/home.tsx](/workspaces/kotlin-web-site-jetsites-internship-2026/app/routes/home.tsx), which makes the SSR and hydrated client agree on the first render
+- document metadata, preload links, and app shell layout are defined in [app/root.tsx](/workspaces/kotlin-web-site-jetsites-internship-2026/app/root.tsx), keeping server and client output aligned
 
 ## Development Setup
 
 ```bash
 bun install
+bun typecheck
 bun run dev
 ```
 
@@ -83,7 +84,7 @@ mise docker      # mise task: build and start the Docker container
 <summary>Project Structure</summary>
 
 ```text
-my-react-router-app/
+.
 ├── app/
 │   ├── root.tsx                # app shell, metadata, links, error boundary
 │   ├── routes.ts               # route definitions
