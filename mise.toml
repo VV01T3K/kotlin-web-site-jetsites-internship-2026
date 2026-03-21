@@ -4,15 +4,15 @@ DO_NOT_TRACK = "1"
 [tools]
 bun = "latest"
 
-# [hooks]
-# postinstall = '''
-#   bun pm pkg set packageManager=bun@$(bun --version) && test -d node_modules || bun install
-# '''
+[hooks]
+postinstall = '''
+  test -d node_modules || bun install
+'''
 
-# [tasks.docker]
-# description = "Build and start the Docker container"
-# dir = "docker"
-# run = "docker compose --env-file ../.env.local -f compose.dev.yaml up -d --build"
+[tasks.docker]
+description = "Build and start the Docker container"
+dir = "."
+run = "docker compose -f compose.yaml up --build"
 
 [settings]
 experimental = true

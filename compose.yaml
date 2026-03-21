@@ -1,9 +1,9 @@
 services:
   app:
     build:
-      context: ./my-react-router-app
+      context: .
       dockerfile: Dockerfile
     ports:
-      - "9000:3000"
+      - "9001:9001"
     environment:
       - NODE_ENV=production
